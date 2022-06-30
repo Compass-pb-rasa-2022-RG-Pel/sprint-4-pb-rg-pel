@@ -1,0 +1,51 @@
+version: "3.0"
+
+rules:
+
+- rule: Activate form
+  steps:
+  - intent: greet
+  - action: utter_name
+  - action: user_name_form
+  - active_loop: user_name_form
+
+- rule: Activate film form
+  steps:
+  - intent: inform_film_name
+  - action: utter_submit
+  - action: film_form
+  - active_loop: film_form
+
+- rule: Submit film form
+  condition:
+  # Condition that form is active.
+  - active_loop: film_form
+  steps:
+  # Form is deactivated
+  - action: film_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_show_inform
+  - action: utter_offer_more_help
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: user_name_form
+  steps:
+  # Form is deactivated
+  - action: user_name_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_show_films
+  - action: utter_offer_more_help
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
