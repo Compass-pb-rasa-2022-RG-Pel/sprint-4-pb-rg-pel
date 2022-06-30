@@ -1,0 +1,76 @@
+version: "3.0"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - inform_user_name
+  - inform_film_name
+  - bad_result
+   
+entities:
+ - name
+ - film_name
+
+slots:
+  name:
+    type: text
+#    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+
+  film_name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: film_name
+
+responses:
+  utter_greet:
+  - text: "Olá! Tudo bem?"
+
+  utter_ask_name:
+  - text: "Qual é seu nome, pequeno padwan?"
+
+  utter_goodbye:
+  - text: "Que a força esteja com você, {name}"
+
+  utter_iamabot:
+  - text: "Eu sou um bot,feito em RASA."
+
+  utter_name:
+  - text: "Olá, meu nome é Charlie, serei seu mestre Jedi!"
+
+  utter_offer_help:
+  - text: "Por qual filme de Star Wars você está buscando, {name}?"
+
+  utter_submit:
+  - text: "Coletando suas informações..."
+
+  utter_offer_more_help:
+  - text: "Você deseja saber mais alguma informação, {name}?"
+
+  utter_bad_result:
+  - text: "Desculpe, não entendi muito bem... \n
+        Vamos tentar de novo, diga o que você deseja buscar:"
+
+
+actions:
+- action_show_films
+- action_show_inform
+
+forms:
+  user_name_form:
+    required_slots:
+    - name
+
+  film_form:
+    required_slots:
+    - film_name
+

@@ -1,0 +1,7 @@
+{
+  "rule_only_slots": [],
+  "rule_only_loops": [
+    "film_form",
+    "user_name_form"
+  ]
+}
