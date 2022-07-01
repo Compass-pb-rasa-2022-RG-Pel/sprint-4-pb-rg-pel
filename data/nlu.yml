@@ -1,12 +1,27 @@
+
+
 version: "3.1"
 
 nlu:
+
+- intent: inform
+  examples: |
+    - O meu nome é [Suelen](user)
+    - meu nome é [André](user)
+    - o nome é [Tatieli](user)
+    - me chamo [vanessa](user)
+    - eu sou o [luis](user)
+    - [angelo](user)
+    - [andreia](user)
+    - eu sou a [antonia](user)
+    - sou o [geovane](user)
+    - sou a [fabiana](user)
+
 - intent: greet ##saudação
   examples: |
     - hei
     - Olá
     - oi
-    - Olá
     - Opa
     - Oi, como vai
     - oiii
@@ -62,7 +77,7 @@ nlu:
     - eu sou incrível
 
 
-- intent: mal_humor
+- intent: mood_unhappy
   examples: |
     - meu dia foi horrivel
     - estou triste
@@ -79,3 +94,40 @@ nlu:
     - você é humano?
     - eu estou falando com um bot?
     - eu estou falando com humano?
+  
+- intent: cat
+  examples: |
+    - gostaria de ver uma foto de gato
+    - quero ver um gatinho
+    - posso ver um gato?
+    - me mostra uma foto de gato
+    - posso ver um gatinho?
+    - um gatinho, por favor
+    - gato
+    - gata
+    - gatinho
+    - gatinha
+
+- intent: breeds
+  examples: |
+    - quero ver um gato da raça [oriental](breeds)
+    - [malayan](breeds)
+    - raça do gato é [bengal](breeds)
+    - A raça desse gato é [javanese](breeds)
+    - a raça do gatinho é [chausie](breeds)
+    - [american bobtail](breeds)
+    - [balinese](breeds)
+    - raça do gatinho [bombay](breeds)
+    - [chartreux](breeds) é a raça do gato
+    - [cymric](breeds) é a raça do gatinho
+    - bicho é [laperm](breeds)
+    - O gato é [cheetoh](breeds)
+    - gato: [cyprus](breeds)
+    - gata é [donskoy](breeds)
+    - O gato é [himalayan](breeds)
+    - raça [abyssinian](breeds)
+    - A raça daquele gato [korat](breeds)
+    - A raça do bicho é [kurilian](breeds)
+    
+    
+

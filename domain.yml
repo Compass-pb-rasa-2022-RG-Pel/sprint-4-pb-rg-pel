@@ -3,32 +3,67 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - afirmação
+  - cat
+  - breeds
+  - inform
 
 responses:
   utter_greet:
-  - text: "Olá! Tudo bem?"
+  - text: "olá"
+  - text: "Oi"
+ 
 
-  utter_cheer_up:
-  - text: "Clique aqui, você vai se animar"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Isso te ajudou?"
+  utter_help:
+  - text: "como posso te ajudar?"
 
   utter_happy:
-  - text: "Ótimo, vamos lá!"
+  - text: "Otimo, até logo"
 
   utter_goodbye:
-  - text: "Tchau!"
+  - text: "tchau"
 
-  utter_iamabot:
-  - text: "Eu sou um bot, produzido pela Rasa"
+  utter_ask_user:
+  - text: "poderia me informar o seu primeiro nome?"
+ 
+  utter_cat:
+  - text: "que gato?"
+
+  utter_ask_breeds: #vai preencher a raça
+  - text: "informe aqui a raça do gato"
+
+entities:
+ - breeds 
+ - user 
+
+slots:
+  breeds:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: breeds
+  user:
+    type: text
+    mappings:
+      - type: from_entity #mapear a raça pela entidade
+        entity: user 
   
+
+actions:
+ - utter_greet 
+ - utter_did_that_help
+ - utter_happy
+ - utter_goodbye
+ - utter_cat
+ - cat_form
+
+forms:
+ cat_form:
+    required_slots: 
+        - user
+        - breeds
+        
+
 session_config:
   session_expiration_time: 600
   carry_over_slots_to_new_session: true

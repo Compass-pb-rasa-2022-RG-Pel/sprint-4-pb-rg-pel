@@ -7,7 +7,22 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Diga 'Eu sou um bot' sempre que o usuário perguntar
+- rule: Active form
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - intent: breeds
+  - action: cat_form
+  - active_loop: cat_form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: cat_form
+  steps:
+  # Form is deactivated
+  - action: cat_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: cat_form
+
