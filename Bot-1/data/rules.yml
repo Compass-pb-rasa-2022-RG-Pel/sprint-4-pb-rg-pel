@@ -1,0 +1,27 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: tchau
+  - action: utter_tchau
+
+- rule: Activate form
+  steps:
+  - intent: breeds
+  - action: dog_form
+  - active_loop: dog_form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: dog_form
+  steps:
+  # Form is deactivated
+  - action: dog_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: dog_form
