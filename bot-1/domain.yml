@@ -5,30 +5,53 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
   - bot_challenge
+  - inform
+
+entities:
+  - city
+  - name
+
+slots:
+  city:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: city
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+
+forms:
+  city_form:
+    required_slots:
+      - city
+
+  user_name:
+    required_slots:
+      - name
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
+    - text: "Opa, gostaria de saber sobre o tempo?"
+  utter_askLocation:
+    - text: "Qual é sua cidade?"
+    - text: "Qual é sua localização?"
   utter_goodbye:
-  - text: "Bye"
-
+    - text: "Tchau"
+    - text: "Até logo :)"
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "Eu sou o WeatherBot, um robô criado para informar o estado do tempo atual"
+  utter_default:
+    - text: "Não entendi o que você digitou, poderia reescrever?"
+  utter_questiona:
+    - text: "Sua cidade é {city}?"
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+actions:
+  - action_buscar_cidade
