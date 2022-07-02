@@ -1,0 +1,16 @@
+version: "3.1"
+
+stories:
+
+- story: path 1
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+  - intent: afirmacao
+  - action: utter_ask_nome
+  - intent: nome
+  - action: utter_ask_cep
+  - intent: cep
+  - action: form_pesquisa
+  - active_loop: form_pesquisa
+

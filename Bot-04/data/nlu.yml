@@ -1,0 +1,71 @@
+version: "3.1"
+
+nlu:
+- intent: saudacao
+  examples: |
+    - Olá
+    - Oi
+    - Oii
+    - Eai
+    - Salve
+    - Opa
+    - Ooi
+    - Bom dia
+    - Boa tarde
+    - Boa noite
+    - Alô
+
+- intent: nome
+  examples: |
+    - Meu nome é [Juan Weimar](PER)
+    - Eu sou [Fernando Garcia](PER)
+    - Meu nome é [Juan](PER)
+    - Me chamo [Daniel](PER)
+    - Eu sou [Juan Carlos Quevedo Weimar](PER)
+    - [Rodrigo Antunes](PER)
+    - [Fabricio Silva Silveira](PER)
+    - [Cristina Caroline Anderson Cleuza](PER)
+
+- intent: cep
+  examples: |
+    - O cep é [01001000](cep)
+    - O cep que desejo é [01001000](cep)
+    - Desejo consultar o cep [01001000](cep)
+    - Me informe os dados do cep [01001000](cep)
+    - Me informe sobre [01001000](cep)
+    - [01001000](cep)
+    - Quero saber sobre o cep [01001000](cep)
+
+- intent: nome_e_cep
+  examples: |
+    - Meu nome é [Juan Weimar](PER) e quero buscar pelo cep [01001000](cep)
+    - Meu nome é [Ricardo](PER) e gostaria de saber sobre o cep [01001000](cep)
+    - Meu nome é [Ricardo](PER), me fale sobre o cep [01001000](cep)
+    - [Fernando Silva](PER), [01001000](cep)
+
+- intent: busca_direta
+  examples: |
+    - Desejo saber sobre um CEP
+    - Quero buscar um CEP
+    - Gostaria de saber sobre um CEP
+    - Busque um CEP pra mim?
+    - Desejo saber sobre outro CEP
+    - Pesquise outro CEP pra mim
+
+- intent: afirmacao
+  examples: |
+    - Sim
+    - s
+    - Ok
+    - yes
+    - ss
+    - sim!
+    - si
+
+- intent: negacao
+  examples: |
+    - Não
+    - nop
+    - n
+    - nn
+    - nao
