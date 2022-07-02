@@ -12,7 +12,7 @@ services:
       - 5005:5005
     volumes:
       - ./:/app
-    #public: true
+    public: true
     command:
       - run
       - --enable-api
