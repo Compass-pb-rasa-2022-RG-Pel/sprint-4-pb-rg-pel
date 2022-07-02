@@ -12,15 +12,15 @@ from rasa_sdk.executor import CollectingDispatcher
 import requests
 
 
-class Buscar_Cidade(Action):
+class ActionSearchCity(Action):
 
     def name(self) -> Text:
-        return "action_buscar_cidade"
+        return "action_search_city"
 
     async def run(self, dispatcher: CollectingDispatcher,
                   tracker: Tracker,
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+        user_name = tracker.get_slot('name')
         city = tracker.get_slot('city').title()
         API_KEY = 'cd94ea11ea101c7443a5613e10993ad0'
         base_request = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric'

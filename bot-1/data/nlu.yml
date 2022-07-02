@@ -1,5 +1,4 @@
 version: "3.1"
-
 nlu:
 - intent: greet
   examples: |
@@ -16,7 +15,6 @@ nlu:
     - oe
     - cpx
     - buenas
-
 - intent: goodbye
   examples: |
     - xau
@@ -26,7 +24,6 @@ nlu:
     - adios
     - bye
     - até logo
-
 - intent: affirm
   examples: |
     - sim
@@ -37,7 +34,6 @@ nlu:
     - certo
     - sempre
     - si
-
 - intent: deny
   examples: |
     - não
@@ -47,17 +43,14 @@ nlu:
     - acho que não
     - não quero
     - nops
-
 - intent: bot_challenge
   examples: |
     - você é um robo?
     - você é um humano?
     - estou falando com um robo?
     - estou falando com um humano?
-
-- intent: inform
+- intent: inform_city
   examples: |
-    - meu nome é [Fernando](name) minha cidade é [rio grande](city)
     - a minha localização é [pelotas](city)
     - [porto alegre](city)
     - a cidade é [Piracicaba](city)
@@ -68,3 +61,16 @@ nlu:
     - a cidade que estou é [Florianopolis](city)
     - a cidade é [Balneário Camburiú](city)
     - a cidade é [Balneario Camburiu](city)
+    - meu nome é [Fernando](name) minha cidade é [rio grande](city)
+    - estou em [rio grande](city)
+- intent: inform_name
+  examples: |
+    - meu nome é [Fernando](name)
+    - me chamo [thais](name)
+    - [Ricardo](name)
+    - sou a [Samanta](name)
+    - Meu nome é [Fernando](name)
+    - eu sou a [Ivete](name)
+    - [Fernando](name) é meu nome
+    - me chamam de [João](name)
+    - [fernando](name)

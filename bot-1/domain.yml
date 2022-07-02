@@ -6,7 +6,8 @@ intents:
   - affirm
   - deny
   - bot_challenge
-  - inform
+  - inform_city
+  - inform_name
 
 entities:
   - city
@@ -18,24 +19,31 @@ slots:
     mappings:
       - type: from_entity
         entity: city
+        conditions:
+        - active_loop: city_form
   name:
     type: text
     mappings:
       - type: from_entity
         entity: name
+        conditions:
+        - active_loop: user_form
 
 forms:
   city_form:
     required_slots:
       - city
 
-  user_name:
+  user_form:
     required_slots:
       - name
 
 responses:
   utter_greet:
-    - text: "Opa, gostaria de saber sobre o tempo?"
+    - text: "Olá :)\nQual é seu nome?"
+    - text: "Olá :)\nComo você se chama?"
+  utter_askWeather:
+    - text: "Olá {name}, gostaria de saber sobre o tempo?"
   utter_askLocation:
     - text: "Qual é sua cidade?"
     - text: "Qual é sua localização?"
@@ -43,15 +51,12 @@ responses:
     - text: "Tchau"
     - text: "Até logo :)"
   utter_iamabot:
-    - text: "Eu sou o WeatherBot, um robô criado para informar o estado do tempo atual"
-  utter_default:
-    - text: "Não entendi o que você digitou, poderia reescrever?"
-  utter_questiona:
-    - text: "Sua cidade é {city}?"
-
+    - text: "Eu sou o WeatherBot, um robô criado para informar as condições climaticas"
+  utter_continue:
+    - text: "Gostaria de ver a temperatura em outra cidade?"
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 
 actions:
-  - action_buscar_cidade
+  - action_search_city
