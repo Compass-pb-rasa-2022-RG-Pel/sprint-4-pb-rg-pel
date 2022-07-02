@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rasa-custom-model
+  labels:
+    app: rasa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rasa
+  template:
+    metadata:
+      labels:
+        app: rasa
+    spec:
+      containers:
+      - name: rasa
+        image: dezan/pythonzinho-kuber:latest
+        ports:
+          - containerPort: 5005
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;"]
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsUser: 0
+      - name: action-server
+        image: dezan/pythonzinho-kuber:latest
+        ports:
+          - containerPort: 5055
+        command: ["rasa", "run", "actions"]
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service
+spec:
+  ports:
+    - port: 5055
+      targetPort: 5055
+  selector:
+    app: rasa
+  type: LoadBalancer 
