@@ -1,0 +1,23 @@
+version: "3.1"
+
+rules:
+
+- rule: Ativar formulario
+  steps:
+  - intent: busca_direta
+  - action: form_pesquisa
+  - active_loop: form_pesquisa
+
+- rule: Submeter formulario
+  condition:
+  #Condição com formulario ativado
+  - active_loop: form_pesquisa
+  steps:
+  #Se o formulario nao estiver ativado
+  - action: form_pesquisa
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  #
+  - action: action_mostra_cep
+  - action: utter_nova_busca

@@ -1,0 +1,9 @@
+version: "3.1"
+
+nlu:
+  - regex: cep
+    examples: |
+      - /([0-9]{8})/
+  - regex: nome
+    examples: |
+      - /([A-Z a-z])/
