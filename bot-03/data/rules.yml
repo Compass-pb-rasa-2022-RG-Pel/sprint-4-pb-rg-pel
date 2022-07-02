@@ -1,0 +1,33 @@
+version: "3.1"
+
+rules:
+
+- rule: Sempre que confirmar chama o nome
+  steps:
+  - intent: afirmacao
+  - action: utter_ask_nome
+
+- rule: Sempre que confirmar o nome chama o cep
+  steps:
+  - intent: nome
+  - action: utter_ask_cep
+
+- rule: Ativar formulario
+  steps:
+  - intent: busca_direta
+  - action: form_pesquisa
+  - active_loop: form_pesquisa
+
+- rule: Submeter formulario
+  condition:
+  #Condição com formulario ativado
+  - active_loop: form_pesquisa
+  steps:
+  #Se o formulario nao estiver ativado
+  - action: form_pesquisa
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  #
+  - action: action_mostra_cep
+  - action: utter_nova_busca
