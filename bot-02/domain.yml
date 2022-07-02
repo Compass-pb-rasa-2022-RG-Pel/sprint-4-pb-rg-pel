@@ -1,0 +1,61 @@
+version: "3.1"
+
+intents:
+  - saudacao
+  - nome
+  - cep
+  - nome_e_cep
+  - afirmacao
+  - negacao
+  - busca_direta
+
+responses:
+  utter_saudacao:
+  - text: "Olá, sou o botCep que te informa os dados especificos de um logradouro, baseado em um CEP, deseja realizar uma pesquisa?"
+
+  utter_ask_nome:
+  - text: "Para começarmos, poderia me informar seu nome?"
+
+  utter_ask_cep:
+  - text: "Agora pode me informar o CEP o qual deseja saber as informações?"
+
+  utter_nova_busca:
+  - text: "Se desejar uma nova busca, é só me falar :)"
+
+  utter_fim_busca:
+  - text: "Agradeço muito pela preferência, quando quiser me usar, só chamar :)"
+
+entities:
+  - PER
+  - cep
+
+slots:
+  nome:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: PER
+
+  cep:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: cep
+
+forms:
+  form_pesquisa:
+    required_slots:
+      - nome
+      - cep
+
+actions:
+  - action_mostra_cep
+  - utter_saudacao
+  - utter_ask_nome
+  - utter_ask_cep
+  - utter_nova_busca
+  - utter_fim_busca
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
