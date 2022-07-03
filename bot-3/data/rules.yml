@@ -1,0 +1,28 @@
+version: "3.1"
+
+rules:
+
+- rule: Diga tchau sempre que o usuário se despedir
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Active form
+  steps:
+  - intent: breeds
+  - action: cat_form
+  - active_loop: cat_form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: cat_form
+  steps:
+  # Form is deactivated
+  - action: cat_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: cat_form
+
