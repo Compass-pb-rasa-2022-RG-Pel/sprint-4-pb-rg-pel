@@ -22,6 +22,12 @@ Api midea stack
 
 ### Após todos os processos de instalação realizados vamos para a parte de treinamento do bot.
 
+### Vamos inicializar os arquivos com!
+
+- rasa init
+
+### Após ter criado todo o processo e estrutura do bot vamos seguir com o treinamento
+
 - rasa train
 
 ### Agora para executar o bot shell
