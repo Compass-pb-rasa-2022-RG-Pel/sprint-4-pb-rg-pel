@@ -10,7 +10,7 @@ Api midea stack
 
 - conda create --name rasaenv python=3.8
 
-###virtualenv
+### virtualenv
 
 - virtualenv -p python3.8 rasaenv
 
