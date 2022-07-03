@@ -51,7 +51,7 @@ responses:
     - text: "Tchau"
     - text: "Até logo :)"
   utter_iamabot:
-    - text: "Eu sou o WeatherBot, um robô criado para informar as condições climáticas"
+    - text: "Eu sou o WeatherBot, um robô criado para informar as condições climaticas"
   utter_continue:
     - text: "Gostaria de ver a temperatura em outra cidade?"
 session_config:
