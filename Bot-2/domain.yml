@@ -1,0 +1,69 @@
+version: "3.1"
+
+intents:
+  - greet
+  - tchau
+  - afirmação
+  - dog
+  - breeds
+  - inform
+
+responses:
+  utter_greet:
+  - text: "olá"
+  - text: "Oi"
+  - text: "Olá, Boa tarde"
+
+  utter_did_that_help:
+  - text: "como posso te ajudar?"
+
+  utter_happy:
+  - text: "Otimo, até logo"
+
+  utter_tchau:
+  - text: "tchau"
+
+  utter_ask_usuario:
+  - text: "poderia me informar o seu primeiro nome?"
+ 
+  utter_dog:
+  - text: "qual cachorro?"
+
+  utter_ask_breeds: #vai preencher a raça
+  - text: "poderia me informa a raça do cachorro?"
+
+entities:
+ - breeds 
+ - usuario 
+
+slots:
+  breeds:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: breeds
+  usuario:
+    type: text
+    mappings:
+      - type: from_entity #mapear a raça pela entidade
+        entity: usuario 
+  
+
+actions:
+ - utter_greet 
+ - utter_did_that_help
+ - utter_happy
+ - utter_tchau
+ - utter_dog
+ - dog_form
+
+forms:
+ dog_form:
+    required_slots: 
+        - usuario
+        - breeds
+        
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

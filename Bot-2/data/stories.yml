@@ -1,0 +1,28 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_usuario
+  - intent: inform
+  - action: utter_did_that_help
+  # - intent: inform
+  # - action: utter_ask_usuario
+  
+- story:  happy dog
+  steps:
+  - intent: dog
+  - action: utter_dog
+  # - intent: breeds
+  # - action: utter_ask_breeds
+
+- story: tchau
+  steps:
+  - intent: tchau
+  - action: utter_tchau
+  
+
+
