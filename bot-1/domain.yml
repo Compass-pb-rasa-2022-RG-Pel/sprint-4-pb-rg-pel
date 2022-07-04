@@ -1,0 +1,76 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - inform_earth_date
+  - inform_user_name
+  
+responses:
+  utter_greet:
+    - text: "Olá, como vai? Sou seu bot de fotos do Curiosity!"
+
+  utter_cheer_up:
+    - text: "Aqui está algo para animá -lo:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Isso ajudou você?"
+
+  utter_happy:
+    - text: "Ótimo, continue!"
+
+  utter_goodbye:
+    - text: "Tchau"
+
+  utter_iamabot:
+    - text: "Eu sou um bot, alimentado por Rasa."
+
+  utter_ask_earth_date:
+    - text: "{usuario} informe uma data entre setembro de 2012 até o dia atual:"
+
+  utter_ask_name:
+    - text: "poderia me dizer seu nome?"
+
+entities:
+  - earth_date
+  - usuario
+
+slots:
+  earth_date:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: earth_date
+  usuario:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: usuario
+
+actions:
+  - utter_greet
+  - utter_did_that_help
+  - utter_happy
+  - utter_goodbye
+  - utter_ask_name
+  - utter_ask_earth_date
+  - action_mars_form
+  # - action_user_form
+
+forms:
+  mars_form:
+    required_slots:
+      - earth_date
+  user_form:
+    required_slots:
+      - usuario
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
