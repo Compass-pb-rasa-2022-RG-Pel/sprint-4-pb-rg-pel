@@ -14,7 +14,7 @@ function gif1() {
     let quandoDigitar = document.getElementById("mensagem1").value
     if (quandoDigitar == "" || quandoDigitar.length >= 1)
         document.getElementById('demo1').style.display = 'block'
-        quandoDigitar = document.getElementById("mensagem1").value
+    quandoDigitar = document.getElementById("mensagem1").value
     if (quandoDigitar == "" || quandoDigitar.length == 0)
         document.getElementById('demo1').style.display = 'none'
 }
@@ -22,7 +22,7 @@ function gif1() {
 function posta1(txt) {
     const a = document.createElement("div")
     let texto = ''
-    if(txt == undefined){
+    if (txt == undefined) {
         texto = document.getElementById("mensagem1").value
         if (texto !== "") {
             socket.emit("user_uttered", { "message": texto })
@@ -31,9 +31,9 @@ function posta1(txt) {
         a.setAttribute("id", "chateu")
         a.innerHTML = '  Cliente' + "<br>" + texto + "<br>" + RetornaHoraAtual(image1())
 
-    }   else{
+    } else {
         texto = txt
-        if(texto.match("https://") || texto.match("http://")){
+        if (texto.match("https://") || texto.match("http://")) {
             texto = `<a href=${texto} target="_blank">${texto}<a/>`
         };
         a.setAttribute("class", "msg_cotainer")
@@ -41,7 +41,7 @@ function posta1(txt) {
         a.innerHTML = '<p>Bot  ' + "<br>" + texto + "<br><p/>" + RetornaHoraAtual(image2())
     }
 
-    
+
     document.getElementById("chatoutro").appendChild(a)
     document.getElementById("mensagem1").value = ""
     document.getElementById("mensagem1").focus()
@@ -64,7 +64,7 @@ function image2() {
 }
 function RetornaHoraAtual() {
     const dNow = new Date()
-    const minutos = String(dNow.getMinutes()).padStart(2,"0")
+    const minutos = String(dNow.getMinutes()).padStart(2, "0")
     const localdate = dNow.getHours() + ':' + minutos
     return localdate;
 }
