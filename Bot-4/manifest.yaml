@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: pod
+metadata:
+  name: rasa-model
+  labels:
+    app: rasa
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rasa
+  template:
+    metadata:
+      labels:
+        app: rasa
+    spec:
+      containers:
+      - name: bot
+        image: rasa/rasa:3.0.3-full
+        ports:
+          - containerPort: 5005
+        command: ["rasa", "run", "--enable-api", "cors", "*"]
+
+      - name: server
+        image: rasa/rasa-sdk:3.0.2
+        ports:
+          - containerPort: 5055
+        command: ["rasa", "run", "actions"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rasa-web
+spec:
+  ports:
+    - port: 5005
+      targetPort: 5005
+  selector:
+    app: rasa
+  type: LoadBalancer
