@@ -67,8 +67,9 @@ class ActionMarsForms(Action):
             else: 
                 print("entrou no else")
                 retorno = requests.get(api_url).json()
-                link = retorno.get("img_src")
-                resposta = f"{usuario}, a foto de marte nessa data {earth_date} é <image src={link} height=100px ></image>"
+                new_photo = retorno.get('photos')
+                link = new_photo[0]['img_src']
+                resposta = f"{usuario}, aqui está uma foto de marte na data: {earth_date}  \n <image src={link} height=100px ></image>"
 
                 dispatcher.utter_message(text =resposta)
 
