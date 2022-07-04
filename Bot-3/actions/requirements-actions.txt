@@ -1,3 +1,5 @@
 pymongo
 pymongo[srv]
-newspaper3k==0.4.4
+newspaper3k==0.2.8
+pymongo==3.10.1
+nltk==3.6.5
