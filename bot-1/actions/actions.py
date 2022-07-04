@@ -90,4 +90,3 @@ class ActionFilmsInform(Action):
                     if tracker.slots.get(slot_name) is None:
                         # The slot is not filled yet. Request the user to fill this slot next.
                         return [SlotSet("requested_slot", slot_name)]
-
