@@ -63,6 +63,9 @@ nlu:
     - a cidade é [Balneario Camburiu](city)
     - meu nome é [Fernando](name) minha cidade é [rio grande](city)
     - estou em [rio grande](city)
+    - [pelotas](city)
+    - [rio grande](city)
+    - [itajaí](city)
 - intent: inform_name
   examples: |
     - meu nome é [Fernando](name)
@@ -74,3 +77,5 @@ nlu:
     - [Fernando](name) é meu nome
     - me chamam de [João](name)
     - [fernando](name)
+    - [thais](name)
+    - [Fernando](name)
