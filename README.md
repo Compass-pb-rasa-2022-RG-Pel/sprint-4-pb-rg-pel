@@ -8,7 +8,7 @@ Como a API em questão está toda em inglês, o método que usei para que o bot 
 - Python 
 - Rasa 
 - Spacy 
-- Modelo pt_core_news_sm
+- Dotenv
 - Pymongo 
 - MongoDB
 - Docker e docker-compose 
