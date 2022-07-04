@@ -3,7 +3,7 @@ services:
   bot:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: bot.dockerfile
     container_name: rasa
     networks:
       - all
@@ -27,7 +27,7 @@ services:
     networks:
       - all
     ports:
-      - "5055:8080"
+      - "5055:5055"
     volumes:
       - "./actions:/app/actions"
     environment:
@@ -35,9 +35,9 @@ services:
       - MONGO_DB=mongodb+srv://Rodrigo:rasa1234@cluster0.9nwjp.mongodb.net/?retryWrites=true&w=majority
 
   mongodb:
-    image: mongodb
+    image: mongo
     ports:
-      - 27017
+      - 27017:27017
     volumes:
       - action
 

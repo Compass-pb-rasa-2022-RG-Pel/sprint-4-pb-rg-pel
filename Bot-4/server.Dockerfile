@@ -1,5 +1,5 @@
 # Utiliza a imagem rasa-sdk oficial como base
-FROM rasa/rasa-sdk:3.2.1
+FROM rasa/rasa-sdk:3.0.2
 WORKDIR /app
 
 # Copia para o container arquivo que define as dependências externas
@@ -16,4 +16,4 @@ COPY ./actions /app/actions
 
 RUN pip install nltk
 RUN python -m nltk.downloader punkt
-COPY ./tokenizers /root/nltk_data/tokenizers
+
