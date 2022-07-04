@@ -1,0 +1,167 @@
+version: '3.1'
+session_config:
+  session_expiration_time: 120
+  carry_over_slots_to_new_session: true
+
+intents:
+- cumprimentar
+- negar
+- afirmar
+- despedir
+- me ajuda
+- tudo_bem
+- elogios
+- agradecimento
+- registro
+- informacoes
+- bot_challenge
+- pesquisa
+- saudacoes
+
+entities:
+- name
+- age
+- keyword
+
+slots:
+  name:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: name
+
+  age:
+    type: any
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: age
+
+  listaDeNoticias:
+    type: list
+    mappings:
+      - type: from_text
+        conditions:
+        - active_loop: action_media_stack         
+  
+  keyword:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: keyword
+
+
+forms:
+  name_form:
+    required_slots:
+      - name
+      - age
+
+
+responses:
+  
+  utter_saudacoes:
+  - text: |
+      Olá, sou um bot, seu assistente virtual!
+
+  - text: |
+      Oi, tudo bem? Sou um bot para te trazer notícias. 
+      Mas primeiro!
+  - text: |
+      oie, Sou um bot,  posso te trazer notícias que voce tenha interesse!
+      Mas primeiro!
+  
+  utter_despedir:
+  - text: |
+      Até breve!
+  - text: |
+      Até a próxima!
+  - text: |
+      Até mais,tchau!
+  - text: |
+       Até a proxima então, tchau! 
+
+    
+  utter_oferecer_serviços:
+  - text: |
+      Quais notícias queres ficar po dentro agora?(Ex:eleições, esportes, cinema, etc)
+  - text: |
+      Pergute sobre o que quiser
+      Ex: Me fale sobre política, traga notícias sobre esportes, casos covid19.
+  - text: |
+      Posso te trazer notícias diversas de acordo com o que você mais deseja como tecnologia, saúde, negócios, etc.
+      Então oque vc quer saber de novo? 
+  
+  utter_tudo_bem:
+  - text: |
+      Oi Tudo bem, Em que posso te ajudar?
+  
+  utter_ask_name:
+  - text: qual o seu nome?
+
+  utter_ask_age:
+  - text: qual a sua idade?
+
+  utter_submit:
+  - text: certo. Obrigado!
+
+  utter_slots_values:
+  - text: Seu nome é {name} e tem {age} anos! ok!
+
+  utter_welcome:
+  - text: |
+       De nada
+  - text: |
+       Por nada
+  - text: |
+       Fico feliz em ter te ajudado!
+  
+      
+  utter_apresentar:
+  - text: |
+      Sou um bot programado para te manter informado da melhor maneira. 
+      Pergunte  o sobre um assunto que goste.
+  - text: |
+      Sou um bot, estou aqui para te trazer as melhores noticias.
+      Oque procura?
+  - text: |
+      Estou aqui para te manter sempre informado de tudo!
+      pesquise algo de seu interesse!
+  - text: |
+      Fui feito especialmente para te manter sempre bem informado de assuntos diversos!
+      Busque algo(ex:filmes, esportes, noticias...)
+
+  utter_iambot:
+  - text: |
+      Sim, sou um bot
+  - text: |
+      Sou um bot e estou aqui para te atender e te dar o melhor suporte!
+      Oque quer saber de informações? 
+
+  utter_agradecimento:
+  - text: |
+      Se te ajudei fico feliz! Caso queira outro conteudo é só pedir!
+      Se não obrigado e até! tchau...
+
+  
+     
+
+      
+
+actions:
+- utter_saudacoes
+- utter_slots_values
+- utter_submit
+- action_media_stack
+- utter_agradecimento
+- utter_welcome
+- utter despedir

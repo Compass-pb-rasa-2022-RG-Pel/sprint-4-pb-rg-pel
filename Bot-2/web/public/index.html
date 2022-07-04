@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<style>
+		body,
+		html {
+			height: 100%;
+			margin: 0;
+			background: #4540e4;
+
+
+		}
+
+		p {
+			text-align: right;
+		}
+
+		.card {
+			height: 700px;
+			width: 600px;
+			margin: 30px;
+			border: 10;
+			border-radius: 15px !important;
+			background-color: rgba(0, 0, 0, 0.4) !important;
+			overflow-y: auto;
+			display: flex
+		}
+
+		.msg_card_body {
+			overflow-y: auto;
+		}
+
+		.msg_cotainer {
+			margin-right: 10px;
+			border-radius: 25px;
+			background-color: rgb(238, 241, 236);
+			padding: 10px;
+		}
+
+		.msg_cotainer_send {
+			margin-left: 10px;
+			border-radius: 25px;
+			background-color: rgb(234, 238, 237);
+			padding: 10px;
+			text-align: right;
+		}
+
+		.card-footer {
+			border-radius: 10 10 15px 15px !important;
+			border-top: 0 !important;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.type_msg {
+			background-color: rgba(0, 0, 0, 0.3) !important;
+			border: 0 !important;
+			color: rgb(248, 247, 247) !important;
+			height: 60px !important;
+			overflow-y: auto;
+		}
+
+		.send_btn {
+			border-radius: 0 15px 15px 0 !important;
+			background-color: rgba(0, 0, 0, 0.3) !important;
+			border: 0 !important;
+			color: white !important;
+			cursor: pointer;
+		}
+
+		.user_img_msg_1 {
+			height: 40px;
+			width: 40px;
+			border: 1.5px solid #030303;
+			float: right;
+		}
+
+		.user_img_msg_2 {
+			height: 40px;
+			width: 40px;
+			border: 1.5px solid #040405;
+			float: left;
+		}
+
+		.user_gif {
+			height: 8px;
+			width: 30px;
+			border: 1.5px solid black;
+		}
+
+		.user_gif2 {
+			height: 8px;
+			width: 30px;
+			border: 1.5px solid black;
+		}
+
+		.imggif {
+			position: absolute;
+			align-items: baseline;
+			bottom: 60px;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<div id="chat"> </div>
+	</div>
+	<div class="col-md-8 col-xl-6 chat">
+		<div class="card">
+			<div class="card-body msg_card_body">
+				<div class="" id="chatoutro">
+				</div>
+			</div>
+			<div class="card-footer">
+				<div class="input-group">
+					<div class="imggif">
+						<img style="display: none" id="demo1" class="user_gif">
+					</div>
+					<textarea name="" class="form-control type_msg" placeholder="Digite uma mensagem..."
+						onkeyup="gif1()" id="mensagem1"></textarea>
+					<div class="input-group-append">
+						<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i>
+							<button onclick="posta1()">Enviar</button></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="./socket.io.js"></script>
+	<script src="./main.js"></script>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
