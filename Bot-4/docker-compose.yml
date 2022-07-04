@@ -8,7 +8,7 @@ services:
     networks:
       - all
     ports:
-      - 5005:5005
+      - 5005:8080
     volumes:
       - ./:/app
     public: true
@@ -27,7 +27,7 @@ services:
     networks:
       - all
     ports:
-      - "5055:5055"
+      - "5055:8080"
     volumes:
       - "./actions:/app/actions"
     environment:
@@ -35,11 +35,11 @@ services:
       - MONGO_DB=mongodb+srv://Rodrigo:rasa1234@cluster0.9nwjp.mongodb.net/?retryWrites=true&w=majority
 
   mongodb:
-    image: bitnami/mongodb:latest
+    image: mongodb
     ports:
       - 27017
     volumes:
-      - /bitnami/mongodb
+      - action
 
 networks:
   all:
