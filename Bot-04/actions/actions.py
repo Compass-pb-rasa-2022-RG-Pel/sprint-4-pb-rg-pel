@@ -30,8 +30,8 @@ class ActionProcuraCep(Action):
         cep = tracker.get_slot("cep")
         nome = tracker.get_slot("nome")
 
-        #client = MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASS}@cluster0.ioqto.mongodb.net/Logradouros?retryWrites=true&w=majority")
-        client = MongoClient(f"'mongodb://mongodb:27017'")
+        client = MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASS}@cluster0.ioqto.mongodb.net/Logradouros?retryWrites=true&w=majority")
+        #client = MongoClient(f"'mongodb://mongodb:27017'")
 
         db = client['database']
         col = db['botCEP']
