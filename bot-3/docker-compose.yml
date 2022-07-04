@@ -27,6 +27,7 @@ services:
       - 5055:5055
     volumes:
       - ./actions:/app/actions
+    #Precisa dessa linha para deploy no okteto
     public: true
   mongodb:
     image: mongo
