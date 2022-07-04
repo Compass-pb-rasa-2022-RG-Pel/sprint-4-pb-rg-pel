@@ -6,7 +6,6 @@ from rasa_sdk.executor import CollectingDispatcher
 import requests
 from rasa_sdk.events import SlotSet
 import os
-# from dotenv import load_dotenv
 from pymongo import MongoClient
 from readline import insert_text
 
@@ -23,45 +22,46 @@ class ActionHelloWorld(Action):
         usuario = tracker.get_slot('usuario')
         dog = tracker.get_slot("breeds")
 
-        ## Lendo arquivo .env
-        # dotenv_path = os.path.join(os.path.dirname(__file__), '/.env') 
-        # print(dotenv_path)      
-        # load_dotenv(dotenv_path)
-        # DB_USER = "tatieli"
-        # DB_PASS = "rasa123"
-        # print(DB_USER)
-        # print(DB_PASS)
 
-         # conexão com o MongoDB
+        #Conexão com o MongoDB 
         client = MongoClient(f"mongodb+srv://bancodog:FgKM0S4I4uoni4Nd@apidog.kx9ryjo.mongodb.net/?retryWrites=true&w=majority")
         db = client["api-dog"]
         collection = db["collection-dog"]
         print(db)
 
-    
-        url= f'https://dog.ceo/api/breed/{dog}/images/random'
-        json_data = requests.get(url).json()
-        data = json_data.get('message')
+        dog = tracker.get_slot("breeds") 
+        url= f'https://dog.ceo/api/breed/{dog}/images/random' 
+        usuario = tracker.get_slot("usuario")
+        print(dog, usuario)
 
-        if (collection.count_documents({"dog":dog})):
+        try: 
+            contador = collection.count_documents({"usuario": usuario, "dog": dog})
+            print(contador)
+            if int(contador) >0:
+                print("entrou no if")
+                dispatcher.utter_message(text = "você já pesquisou sobre esse cachorro")
+                doguinho = collection.find_one({"usuario": usuario, "dog": dog})
+                data_db = doguinho.get("url")
+                resposta = f'{usuario}, o cachorro solicitado é da raça {dog} e pode ser visto no link {data_db} <image src={data_db} height=100px ></image>'
+                dispatcher.utter_message(text = resposta)
 
-            resp = "Esse cachorro já consta na nossa consulta"
-            dispatcher.utter_message(text= resp)
-            
-            consulta = collection.find_one({"dog":dog})
-            dogDB = consulta.get("dog")
-            resp2 = f"Voce pode ver aqui {dogDB}"
-            dispatcher.utter_message(text= resp2)
+            else: 
+                print("entrou no else")
+                retorno = requests.get(url).json()
+                link = retorno.get('message')  
+                resposta = f"{usuario}, o cachorro solicitado é da raça {dog} e pode ser visto no link {link} <image src={link} height=100px ></image>"
 
+                dispatcher.utter_message(text= resposta)
 
-        else:
-            
-            resp = f"Olá {usuario}, o você solicitou o cachorro da raça {dog}, aqui estão link {data} <image src={data} height=100px ></image>"
+                documento = {
+                    "usuario": usuario,
+                    "dog": dog,
+                    "url": link,
+                }
+                collection.insert_one(documento)
+        except: 
+            print("erro no try")
 
-            res = {"usuario": usuario, "dog": dog, "url":url}
+        return [SlotSet("breeds", url)]
 
-            collection.insert_one(res)
-
-            dispatcher.utter_message(text= resp)
-
-            return [SlotSet("breeds", url)]
+        
