@@ -27,12 +27,12 @@ class ActionFilms(Action):
     ) -> List[EventType]:
         required_slots = ["name"]
         name = tracker.get_slot("name")
-        print("1")
+        #Quando o usuário em questão digitar o nome, o bot irá mostrar todos os episódios disponíveis para pesquisa
+
         # Acessa a API para mostrar todos os filmes
         api_url = "https://swapi.dev/api/films/"
 
         json_data = requests.get(api_url).json()
-        print("2")
         try:    
             dispatcher.utter_message(text=f"{name}, aqui estão todos os filmes da franquia original: ")
             ct=0
@@ -43,6 +43,7 @@ class ActionFilms(Action):
                 dispatcher.utter_message(text=f"Episodio: {episodio} - {titulo}\n ")
                 ct = ct+1
         except: 
+            #Se der erro, ele manda uma mensagem de erro na variável título e informa o usuário que não conseguiu realizar a ação
             titulo = json_data['error']
             dispatcher.utter_message(text=f"Opa {name}, não localizamos sua solicitação!")
         finally:
@@ -63,6 +64,7 @@ class ActionFilmsInform(Action):
         required_slots = ["film_name"]
         film_name = tracker.get_slot("film_name")
         name = tracker.get_slot("name")
+
         ## Lendo arquivo .env
         dotenv_path = os.path.join(os.path.dirname(__file__), '.env')       
         load_dotenv(dotenv_path)
@@ -120,4 +122,5 @@ class ActionFilmsInform(Action):
                 titulo = json_data['error']
                 dispatcher.utter_message(text=f"Opa, não localizamos sua solicitação!")
             finally:
+                # Limpa o slot de filme, para novas pesquisas de episódios
                 return [SlotSet("film_name", None)]
