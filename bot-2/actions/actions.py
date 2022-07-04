@@ -15,6 +15,7 @@ import requests
 import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
+from datetime import datetime
 
 class ActionFilms(Action):
 
@@ -61,7 +62,7 @@ class ActionFilmsInform(Action):
     ) -> List[EventType]:
         required_slots = ["film_name"]
         film_name = tracker.get_slot("film_name")
-
+        name = tracker.get_slot("name")
         ## Lendo arquivo .env
         dotenv_path = os.path.join(os.path.dirname(__file__), '.env')       
         load_dotenv(dotenv_path)
@@ -73,7 +74,9 @@ class ActionFilmsInform(Action):
         client = MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASS}@apicluster.zyhrttc.mongodb.net/?retryWrites=true&w=majority")
         db = client["database"]
         collection = db["filmes"]
+        print(client)
     
+        #Verifica se o número do episódio fornecido está dentro dos episódios da API
         if int(film_name) > 6 or int(film_name) < 1:
             dispatcher.utter_message(text=f"Opa, não localizamos sua solicitação!")
         else:
@@ -81,31 +84,40 @@ class ActionFilmsInform(Action):
             api_url = "https://swapi.dev/api/films/"
 
             json_data = requests.get(api_url).json()
-            try:    
-                dispatcher.utter_message(text=f"Essas são as informações sobre o episódio {film_name}: ")
-                ct=0
-                while(ct < 6):
+            ct = 0
+            while(ct < 6):
+                episodio = json_data['results'][ct]['episode_id']
+                # Quando o o episódio digitado encontrar o valor do json da API, ele armazena as informações
+                if episodio == int(film_name):
                     episodio = json_data['results'][ct]['episode_id']
-                    if episodio == int(film_name):
+                    titulo = json_data['results'][ct]['title']
+                    resumo = json_data['results'][ct]['opening_crawl']
+                    diretor = json_data['results'][ct]['director']
+                    produtor = json_data['results'][ct]['producer']
+                    data_lan = json_data['results'][ct]['release_date']
+                ct = ct+1
+            try:
+                #Primeiro verifica se o usuário já existe no banco
+                for busca in  collection.find({'user':name}):
+                    #verifica se para o usuário em questão, possui alguma pesquisa relacionada ao episódio pesquisado
+                    if (titulo in busca['title']): 
+                        print("Achou no banco!") 
+                        dispatcher.utter_message(text=f"{name} vi aqui que você já havia pesquisado pelo {busca['title']}, no dia {busca['data_busca']}")
+                        dispatcher.utter_message(text=f"\n aqui vão algumas informações sobre sua pesquisa: \n")
+                        dispatcher.utter_message(text=f"Título Original: {titulo}  \nDiretor: {diretor}  \n Produtores: {produtor}  \n Data de Lançamento: {data_lan}\nResumo:  \n {resumo}")
+                        break
+                    else:          
                         print("entrei")
-                        titulo = json_data['results'][ct]['title']
-                        resumo = json_data['results'][ct]['opening_crawl']
-                        diretor = json_data['results'][ct]['director']
-                        produtor = json_data['results'][ct]['producer']
-                        data_lan = json_data['results'][ct]['release_date']
+                        data_busca =  datetime.utcnow()
                         #Inserindo dados no mongo DB
-                        insertSearch = {'title': titulo,'release_date': data_lan}
+                        insertSearch = {'user': name, 'data_busca': data_busca, 'title': titulo,'release_date': data_lan}
+                        print(insertSearch)
                         collection.insert_one(insertSearch)
                         # Mostra na tela, os resultados dos títulos dos filmes, colhidos da API
-                        dispatcher.utter_message(text=f"Título Original: {titulo} \n Diretor: {diretor} \n Produtores: {produtor} \n Data de Lançamento: {data_lan} \n Resumo: \n {resumo}")
-                    ct = ct+1
+                        dispatcher.utter_message(text=f"Título Original: {titulo} \n Diretor: {diretor}  \n Produtores: {produtor}  \n Data de Lançamento: {data_lan}  \n Resumo:  \n {resumo}")
+                        break
             except: 
                 titulo = json_data['error']
                 dispatcher.utter_message(text=f"Opa, não localizamos sua solicitação!")
             finally:
-                # Não deixa enviar o nome vazio!
-                for slot_name in required_slots:
-                    if tracker.slots.get(slot_name) is None:
-                        # The slot is not filled yet. Request the user to fill this slot next.
-                        return [SlotSet("requested_slot", slot_name)]
-
+                return [SlotSet("film_name", None)]
