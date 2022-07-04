@@ -3,7 +3,7 @@ services:
   bot:
     build:
       context: .
-      dockerfile: bot.Dockerfile
+      dockerfile: Dockerfile
     container_name: rasa
     networks:
       - all
@@ -23,7 +23,7 @@ services:
       context: .
       dockerfile: server.Dockerfile
     image: rasa-action-server
-    container_name: ractions
+    container_name: actions
     networks:
       - all
     ports:
