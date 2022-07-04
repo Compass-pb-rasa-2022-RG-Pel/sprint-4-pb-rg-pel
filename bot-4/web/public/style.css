@@ -1,0 +1,10 @@
+ul, form {
+	margin:10;
+	padding:10;
+	overflow:hidden;
+}
+body {
+	margin:20;
+	padding:20px 0;
+	background-color:#F0FF8A;
+}

@@ -1,0 +1,98 @@
+version: "3.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - Hey
+    - ola
+    - oi
+    - eai
+    - bom dia
+    - boa tarde
+    - tudo bem
+    - vamos la
+    - fala
+    - bomdia
+    - boatarde
+    - fala ai
+
+- intent: inform_film_name
+  examples: |
+   - [1](film_name)
+   - quero saber sobre o episodio [2](film_name)
+   - episodio [3](film_name)
+   - Episódio [4](film_name)
+
+- intent: inform_user_name 
+  examples: |
+    - Eu me chamo [Pedro](name)
+    - Meu nome é [Luis](name)
+    - meu nome é [ana](name)
+    - Eu sou [Paulo](name)
+    - Eu sou chamado [José](name)
+    - Me chamo: [Paulo](name)
+    - me chamo [ana](name)
+    - me chamo [Heitor](name)
+    - [Ricardo](name)
+    - meu nome é [Leonardo](name)
+    - [Claudio](name)
+    - [daniel](name)
+    - [ana](name)
+    - [Alysson](name)
+    - [Juan](name)
+    - [fernando](name)
+    - [Tatiele] (name)
+    - [Suelen] (name)
+
+
+- intent: goodbye
+  examples: |
+    - xauxau
+    - tchau
+    - até mais
+    - adeus
+    - até logo
+
+- intent: affirm
+  examples: |
+    - sim
+    - s
+    - exato
+    - isso mesmo
+    - exatamente
+    - Sim
+    - é isso mesmo
+    - é isso aí
+    - certo
+    - correto
+
+- intent: deny
+  examples: |
+    - não
+    - n
+    - Não exatamente
+    - Na verdade não
+    - Não
+    - parar
+    - pare
+    - nao
+  
+- intent: bot_challenge
+  examples: |
+    - Voce é um robo?
+    - Você é um humano?
+    - estou falando com um bot?
+    - estou falando com um humano?
+    - voce tem sentimentos?
+    - quem é você?
+
+- intent: bad_result
+  examples: |
+    - você não me ajudou
+    - não encontrei o que queria
+    - você não funciona
+    - vc poderia funcionar melhor
+    - você é bugado
+    - voce é pessimo
+    - não funcionou
+    - nao consegui achar 
