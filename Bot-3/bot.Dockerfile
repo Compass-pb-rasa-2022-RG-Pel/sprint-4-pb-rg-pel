@@ -1,4 +1,4 @@
-FROM rasa/rasa:3.0.3-full
+FROM rasa/rasa:3.2.1-full
 
 # Utiliza o root user para instalar as dependências
 USER root

@@ -1,0 +1,48 @@
+version: '3'
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: bot.dockerfile
+    container_name: rasa
+    networks:
+      - all
+    ports:
+      - 5005:8080
+    volumes:
+      - ./:/app
+    public: true
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
+
+  server-bot:
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    image: rasa-action-server
+    container_name: actions
+    networks:
+      - all
+    ports:
+      - "5055:5055"
+    volumes:
+      - "./actions:/app/actions"
+    environment:
+      - API_KEY=ca89b084ffffaa5e905c7c0eda443631
+      - MONGO_DB=mongodb+srv://Rodrigo:rasa1234@cluster0.9nwjp.mongodb.net/?retryWrites=true&w=majority
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - action
+
+networks:
+  all:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "true"
