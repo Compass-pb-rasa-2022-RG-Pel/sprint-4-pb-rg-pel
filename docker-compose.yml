@@ -1,0 +1,41 @@
+version: "3.0"
+
+services:
+  containerBot:
+    build:
+      context: .
+      dockerfile: rasaDock.Dockerfile
+    ports:
+      - 5005:5005
+    depends_on:
+      - containerAction
+    volumes:
+      - ./:/app
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
+      - --credentials
+      - credentials.yml
+      - --debug
+  containerAction:
+    build:
+      context: .
+      dockerfile: actionsRasa.Dockerfile
+    image: rasa-actions:latest
+    ports:
+      - 5055:5055
+    volumes:
+      - ./actions:/app/actions
+  mongodb:
+    image: mongo
+    container_name: db
+    networks:
+      - rasa-network
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: sprint4

@@ -1,0 +1,70 @@
+version: "3.1"
+
+nlu:
+- intent: inform
+  examples: |
+    - O meu nome é [Aline](usuario)
+    - meu nome é [Pedro](usuario)
+    - o nome é [Vanessa](usuario)
+    - [tatieli](usuario)
+    - [caio](usuario)
+    - [romulo](usuario)
+    - eu sou [felipe](usuario)
+    - eu me chamo [augusto](usuario)
+    - sou [lucas](usuario)
+
+- intent: greet
+  examples: |
+    - oi
+    - olá
+    - bom dia
+    - boa tarde 
+    - oi, como vai?
+    - oi, tudo bem?
+    - oi, gostaria de saber sobre os cachorros
+    - oi, gostaria de saber sobre os cães
+    - oi, gostaria de saber sobre os doguinhos
+
+- intent: tchau
+  examples: |
+    - tchau
+    - adeus
+    - vejo você depois
+    - boa noite
+    - até logo
+
+- intent: afirmação
+  examples: |
+    - sim
+    - s
+    - entendido
+    - correto 
+    - certo
+ 
+- intent: dog
+  examples: |
+    - quero saber sobre um cachorro
+    - quero saber sobre o cachorro
+    - quero saber sobre um cão
+    - quero saber sobre o cão
+    - quero saber sobre um doguinho
+    - quero saber sobre o doguinho
+    - quero saber sobre 
+    - cachorros
+    - cachorro
+    - cão
+    - doguinho
+
+- intent: breeds
+  examples: |
+    - a raça do cachorro é [akita](breeds)
+    - O cachorro é [beagle](breeds)
+    - cachorro: [affenpinscher](breeds)
+    - cachorro é [airedale](breeds)
+    - O cachorro é [appenzeller](breeds)
+    - A raça desse cachorro é [bluetick](breeds)
+    - A raça daquele cachorro [borzoi](breeds)
+    - A raça do bicho cachorro é [brabancon](breeds)
+    - cachorro bicho é [briard](breeds)
+    - [basenji](breeds)
+    - quero ver um cachorro da raça [akita] (breeds)
