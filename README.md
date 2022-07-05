@@ -25,7 +25,8 @@ Avaliação da quarta sprint do programa de bolsas Compass.uol para formação e
 
 # API Utilizada:
 
-- API.
+- [Adviceslip](https://api.adviceslip.com/)
+- [libretranslate](https://libretranslate.com/)
 
 # Tecnologias Utilizadas:
 - Python 
@@ -37,22 +38,88 @@ Avaliação da quarta sprint do programa de bolsas Compass.uol para formação e
 - Docker e docker-compose 
 - Okteto
 
-# Chatbot
+# Chatbot web
 
-primeira busca na API. 
+ O desenvolvimento foi realizado em NodeJs com o framework [Express](https://expressjs.com/pt-br/)
 
-# Docker
+# Docker-compose
 
-Foram criados dois arquivos Dockerfile: um para a imagem do server do chatbot e o outro com a imagem do bot. O server.Dockerfile tem a função de executar o "rasa run actions" utilizado no terminal para acessar as actions do bot, além disso, ele precisa fazer a instalação do pymongo para que o bot consiga interagir com o mongoDB. O bot.Dockerfile faz a instalação do spacy para download do pt_core_news_sm. As imagens utilizadas foram utilizadas do DockerHub e foram carregadas em containers, as dependências externas foram instaladas e uma nova imagem era gerada, contendo as dependências externas necessárias. 
+```python
+    version: '3.0'
+    services:
+
+      chatbot:
+        build:
+          context: .
+          dockerfile: ./Rasa-bot1/Rasa.dockerfile
+        container_name: rasa
+        networks: 
+          - rasa-network
+        ports:
+          - 5005:5056
+        depends_on:
+          - "actions"
+        volumes:
+          - ./Rasa-bot1:/app
+        command:
+          - run
+          - --enable-api
+          - --cors
+          - "*"
+          - --debug
+          - -p 5056
+          - --model
+          - models
+    
+
+      actions:
+        build:
+          context: .
+          dockerfile: ./Rasa-bot1/Actions.dockerfile
+        image: rasa-action-server
+        container_name: actions
+        networks: 
+          - rasa-network
+        ports:
+          - "5055:5055"
+        volumes:
+          - "./actions:/app/actions"
+
+      mongodb:
+        image: mongo
+        container_name: db
+        networks: 
+          - rasa-network
+        ports:
+          - 27017:27017
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: root
+          MONGO_INITDB_DATABASE: sprint4
+
+      web:
+        build:
+          context: ./chat
+          dockerfile: Web.dockerfile
+        image: webchat
+        container_name: chat
+        depends_on:
+          - "chatbot"
+        networks: 
+          - rasa-network
+        ports: 
+          - 8080:8080
+
+    networks: 
+        rasa-network:
+            driver: bridge
+```
 
 # BOT Web
 
 O socket.io foi configurado em credentials.yml e manipulado dentro do main.js para usar o bot treinado com as informações que o usuário digita para ele.
 
-Foi criado mais um arquivo Dockerfile que monta uma imagem para rodar um servidor express, presente no arquivo server.js.
 
-<h3>bot</h3>
-
-<h3>Quando o usuário busca por algo que não está na API</h3>
+# aplicação
 
 Link: https://web-evertonlwf.cloud.okteto.net
