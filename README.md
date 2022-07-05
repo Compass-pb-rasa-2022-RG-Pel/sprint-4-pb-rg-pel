@@ -14,6 +14,9 @@ Avaliação da quarta sprint do programa de bolsas Compass.uol para formação e
 ---
 <br>
 
+![image](https://user-images.githubusercontent.com/90530503/177312313-00f56c31-9a81-43b6-91d4-ab79e80a682e.png)
+
+
 ## DA ATIVIDADE PROPOSTA
 <br>
 
@@ -28,9 +31,25 @@ Avaliação da quarta sprint do programa de bolsas Compass.uol para formação e
 ## DO RASA CHATBOT
 <br>
 
+- df
+
+- dsf 
+
+- dsf d
+
+<br>
 
 ## DO MONGODB
 <br>
+
+
+### MONGO EXPRESS
+<br>
+
+Optei por utilizar o Mongo Express para melhor visualizar os dados registrados no banco de dados MongoDB. Ele é dinâmico, rápido e bastante leve, um ótimo sistema para utilizar no Okteto.
+
+![image](https://user-images.githubusercontent.com/90530503/177312561-458aee70-18ab-434d-a9a2-2faf55611c95.png)
+
 
 ## DO OKTETO
 <br>
