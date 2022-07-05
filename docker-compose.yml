@@ -48,7 +48,7 @@ services:
 
   web:
     build:
-      context: webchat
+      context: ./
       dockerfile: Web.dockerfile
     image: webchat
     container_name: webchat-app
