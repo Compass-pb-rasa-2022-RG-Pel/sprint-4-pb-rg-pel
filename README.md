@@ -36,7 +36,7 @@ Api midea stack
 
 ### Com esse comando damos start no server rasa
 
-- rasa run cors-- "*"
+- rasa run --cors "*"
 
 ### Esse comando ativa as actions para rodar o bot
 
@@ -52,3 +52,5 @@ Api midea stack
 
 ---
 ---
+## Tive alguns problemas com a conexão da parte front onde criei o codigo com uma interface similar a um chatbot real para o projeto, e então assim com o okteto nos trazendo grande dificuldades de link, onde ele não conseguia fazer a construção da imagens e seu acesso.
+- 
