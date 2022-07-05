@@ -56,5 +56,13 @@ class Habilidades(Action):
             dispatcher.utter_message(text=f"Antes de continuar, digite seu nome. Pode começar com: 'Meu nome é ...'")
             return [] 
         else:
-            dispatcher.utter_message(text=f"{resposta}")
+            dispatcher.utter_message(text=f"NOME: {nome}")
+            dispatcher.utter_message(text=f"VIDA: {vida}")
+            dispatcher.utter_message(text=f"ATAQUE: {ataque}")
+            dispatcher.utter_message(text=f"DEFESA: {defesa}")
+            dispatcher.utter_message(text=f"ATAQUE ESPECIAL: {ataque_especial}")
+            dispatcher.utter_message(text=f"DEFESA ESPECIAL: {defesa_especial}")
+            dispatcher.utter_message(text=f"VELOCIDADE: {velocidade}")
+            dispatcher.utter_message(image = link_foto}")
+            
             return [SlotSet("nome_pokemon", None)] 
