@@ -20,7 +20,7 @@ def ConectMongo():
         # client = MongoClient(
         #     'mongodb://localhost:27017/?directConnection=true')
         client = MongoClient(f'mongodb+srv://{DB_NAME}:{DB_PASS}@weatherdb.cm3rmpi.mongodb.net/?retryWrites=true&w=majority')
-        db = client.historical_search
+        db = client.weather_bot
         collection = db.data_search
         collection.insert_one({"user": "name", "searched_city": "city"})
 
