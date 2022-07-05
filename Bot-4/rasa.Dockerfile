@@ -1,8 +1,5 @@
-FROM rasa/rasa-sdk:3.0.2
-WORKDIR /app
-
+FROM rasa/rasa:3.2.1
 USER root
-
-COPY ./actions /app/actions
-
-USER root
+RUN pip3 install spacy
+RUN python -m spacy download pt_core_news_sm
+USER 1001

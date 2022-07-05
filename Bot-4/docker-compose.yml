@@ -4,49 +4,52 @@ services:
     build:
       context: .
       dockerfile: rasa.Dockerfile
+    networks:
+      - rasa-network
     ports:
-      - 5005:5005
+      - 5005:5056
     depends_on:
       - container-server-bot
     volumes:
       - ./:/app
+    public: true
     command:
       - run
       - --enable-api
       - --cors
       - "*"
-      - --credentials
-      - credentials.yml
       - --debug
-      - -p 8080
+      - -p 5056
   container-server-bot:
     build:
       context: .
       dockerfile: actions.Dockerfile
     image: rasa-actions:latest
+    networks:
+      - rasa-network
     ports:
       - 5055:5055
     volumes:
       - ./actions:/app/actions
 
-  mongodb:
-    image: mongo
-    container_name: db
-    networks:
-      - rasa-network
-    ports:
-      - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
-      MONGO_INITDB_DATABASE: sprint4
-
+  # web:
+  #   build:
+  #     context: ./web/
+  #     dockerfile: web.Dockerfile
+  #   depends_on:
+  #     - container-bot
+  #   networks:
+  #     - rasa-network
+  #   ports:
+  #     - 8080:8080
   web:
     build:
-      context: ./web/
+      context: ./webchat
       dockerfile: web.Dockerfile
+    image: webchat
+    container_name: webchat-app
     depends_on:
-      - container-bot
+      - "container-bot"
     networks:
       - rasa-network
     ports:

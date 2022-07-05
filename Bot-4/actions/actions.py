@@ -42,16 +42,18 @@ class ActionHelloWorld(Action):
                 dispatcher.utter_message(text = "você já pesquisou sobre esse cachorro")
                 doguinho = collection.find_one({"usuario": usuario, "dog": dog})
                 data_db = doguinho.get("url")
-                resposta = f'{usuario}, o cachorro solicitado é da raça {dog} e pode ser visto no link {data_db} <image src={data_db} height=100px ></image>'
+                resposta = f'{usuario}, o cachorro solicitado é da raça {dog}'
                 dispatcher.utter_message(text = resposta)
+                dispatcher.utter_message(image = link)
 
             else: 
                 print("entrou no else")
                 retorno = requests.get(url).json()
                 link = retorno.get('message')  
-                resposta = f"{usuario}, o cachorro solicitado é da raça {dog} e pode ser visto no link {link} <image src={link} height=100px ></image>"
+                resposta = f"{usuario}, o cachorro solicitado é da raça {dog}" 
 
                 dispatcher.utter_message(text= resposta)
+                dispatcher.utter_message(image = link)
 
                 documento = {
                     "usuario": usuario,
