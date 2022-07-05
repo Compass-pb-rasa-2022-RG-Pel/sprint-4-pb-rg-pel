@@ -154,7 +154,7 @@ comando:
 
 okteto deploy --build   -->
 
-![image](https://user-images.githubusercontent.com/71715202/177292513-f73862ab-52f3-4ff0-8e05-7fe1617726c6.png)
+![image](https://user-images.githubusercontent.com/71715202/177296909-3d81b151-e2af-41eb-b26a-b0aeb22c3f99.png)
 
 ![image](https://user-images.githubusercontent.com/71715202/177291715-e81c3421-5be7-494b-b186-9edac7850c2f.png)
 
