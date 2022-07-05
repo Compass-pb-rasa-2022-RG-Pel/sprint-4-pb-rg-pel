@@ -59,7 +59,15 @@ Api midea stack
 
 ### o quarto Bot-4 teve a interação e inclução no okteto para a hospedagem e geração do link de acesso do bot funcionando.
 
+# Imagens do chat Bot!
 
+<img src="https://i.ibb.co/ZMTLPtR/bot1.jpg">
+
+<img src="https://i.ibb.co/P9t8fJZ/bot-2.jpg">
+
+### Conexão do mongo com os links salvos que vem da api!
+
+<img src="https://i.ibb.co/rk9ZMn8/conex-o-do-mongo.jpg">
 
 
 
