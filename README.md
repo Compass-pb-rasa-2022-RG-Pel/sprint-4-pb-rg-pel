@@ -3,9 +3,9 @@
 - NASA: Mars Rovers Photos API
 O Chatbot utiliza a API Mars Rovers Photos para buscar uma foto do rover Curiosity através da data em que a foto "chegou na terra", como o link de consulta utiliza o formato AA-MM-DD, no arquivo de action através do código: 
 
->  array = earth_date.split("/")
->  new_date = array[2] + "-" + array[1] + "-" + array[0]
->  print(new_date)
+- >  array = earth_date.split("/")
+- >  new_date = array[2] + "-" + array[1] + "-" + array[0]
+- >  print(new_date)
 
 # Tecnologias Utilizadas:
 - Python 
