@@ -57,7 +57,7 @@ Api midea stack
 ### O terceiro BOt-3 foi incluido os arquivos para a conexão com o Dockerfile.
 
 
-### o quarto Bot-4 teve a interação e inclução no okteto para a hospedagem e geração do link de acesso do bot funcionando.
+### o quarto Bot-4 teve a interação e inclusão no okteto para a hospedagem e geração do link de acesso do bot funcionando.
 
 # Imagens do chat Bot!
 
