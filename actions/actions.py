@@ -52,6 +52,9 @@ class Habilidades(Action):
             dispatcher.utter_message(text=f"Antes de continuar, digite seu nome. Pode começar com: 'Meu nome é ...'")
             return [] 
         else:
+            if int(minha_colecao.count_documents({"usuario": usuario, "pokemon": pokemon})) > 0:
+                dispatcher.utter_message(text=f"Você já consultou o pokemon {pokemon}")                
+            
             dispatcher.utter_message(text=f"NOME: {nome}")
             dispatcher.utter_message(text=f"VIDA: {vida}")
             dispatcher.utter_message(text=f"ATAQUE: {ataque}")
