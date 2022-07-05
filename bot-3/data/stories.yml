@@ -8,11 +8,11 @@ stories:
   - action: utter_greet
   - intent: inform_name
     entities:
-    - name
+    - name: fernando
   - action: user_form
   - active_loop: user_form
   - slot_was_set:
-    - name
+    - name: fernando
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
@@ -21,11 +21,11 @@ stories:
   - action: utter_askLocation
   - intent: inform_city
     entities:
-    - city
+    - city: rio grande
   - action: city_form
   - active_loop: city_form
   - slot_was_set:
-    - city
+    - city: rio grande
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
