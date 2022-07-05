@@ -27,8 +27,11 @@ class Habilidades(Action):
             client = MongoClient("mongodb://root:root@mongodb:27017/")
             database = client["sprint4"]
             minha_colcao = database["pokemons"]
-            print(client)
             
+            if int(collection.count_documents({"usuario": usuario, "pokemon": nome})) > 0:
+                dispatcher.utter_message(text=f"Você já consultou o pokemon {nome}")
+                return [SlotSet("nome_pokemon", None)]
+
         except:
             print("Não foi possível conectar ao banco de dados")
             
@@ -54,7 +57,7 @@ class Habilidades(Action):
 
         if tracker.slots['usuario'] == None:
             dispatcher.utter_message(text=f"Antes de continuar, digite seu nome. Pode começar com: 'Meu nome é ...'")
-            return [] 
+            return [SlotSet("nome_pokemon", None)] 
         else:
             dispatcher.utter_message(text=f"NOME: {nome}")
             dispatcher.utter_message(text=f"VIDA: {vida}")
@@ -65,7 +68,7 @@ class Habilidades(Action):
             dispatcher.utter_message(text=f"VELOCIDADE: {velocidade}")
             dispatcher.utter_message(image = link_foto)
             
-            registro = [{"usuario": usuario, "pokemon": nome, "vida": vida, "ataque": ataque, "defesa": defesa, "ataque especial": ataque_especial, "defesa especial": defesa_especial, "velocidade": velocidade, "imagem": link_foto}]
+            registro = [{"usuario": usuario, "pokemon": nome, "vida": vida, "ataque": ataque, "defesa": defesa, "ataque especial": ataque_especial, "defesa especial": defesa_especial, "velocidade": velocidade, "imagem": link_foto, "data atual": data_atual, "id da conexão": id_conexao}]
             minha_colcao.insert_many(registro)
             
             return [SlotSet("nome_pokemon", None)] 
