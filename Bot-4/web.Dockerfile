@@ -1,7 +1,6 @@
-FROM node:14
-COPY . /var/www
+FROM node:latest
+COPY . /var/www 
 WORKDIR /var/www
 RUN npm install
-ENTRYPOINT ["node", "server.js"]
-ENV PORT=8080
-EXPOSE $PORT
+ENTRYPOINT node server.js
+EXPOSE 3000
