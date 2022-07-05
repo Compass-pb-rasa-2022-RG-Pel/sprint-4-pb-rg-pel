@@ -22,7 +22,7 @@ Api midea stack
 
 ### Após todos os processos de instalação realizados vamos para a parte de treinamento do bot.
 
-### Vamos inicializar os arquivos com!
+### Vamos inicializar os arquivos com alguns comandos.
 
 - rasa init
 
@@ -45,6 +45,14 @@ Api midea stack
 ### Na pasta web acesse o index.html em seu navegador,onde estará o chatbot para executar.
 
 ---
+
+## O primeiro Bot-1 foi postado com a parte de treinamento e codigos funcionais.
+
+## O segundo Bot-2 foi incluido a conexão do mongodb e sua conexão e função para salvar o historico de acesso dos usuarios que usaram a comunicação do Bot.
+
+## o terceiro BOt-3 foi incluido os arquivos para a conexão com o Docker.
+
+## o quarto Bot-4 teve a interação e inclução no okteto para a hospedagem e geração do link de acesso do bot funcionando.
 
 
 
