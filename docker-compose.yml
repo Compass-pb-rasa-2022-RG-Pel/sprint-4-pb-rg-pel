@@ -49,7 +49,7 @@ services:
   web:
     build:
       context: ./webchat
-      dockerfile: Web.dockerfile
+      dockerfile: web.Dockerfile
     image: webchat
     container_name: webchat-app
     depends_on:
