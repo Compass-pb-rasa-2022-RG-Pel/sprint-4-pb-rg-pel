@@ -1,0 +1,22 @@
+version: "3.1"
+
+stories:
+  - story: first path
+    steps:
+      - intent: greet
+      - action: utter_ask_name
+      - intent: inform_name
+      - action: utter_advice
+      - intent: affirm
+      - action: utter_ask_language
+
+  #- story: second path
+  #  steps:
+  #    - intent: deny
+  #    - slot_was_set:
+  #      - slot_name: None
+  #    - slot_was_set:
+  #      - slot_id: None
+  #    - slot_was_set:
+  #      - slot_lang: None
+  #    - action: utter_goodbye

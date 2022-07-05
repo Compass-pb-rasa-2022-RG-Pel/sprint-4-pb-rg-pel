@@ -1,11 +1,11 @@
-const socket = io('http://localhost:5005');
-//const socket = io();
+
+const socket = io('https://chatbot-evertonlwf.cloud.okteto.net');
 
 socket.on('connect', function () {
     console.log("Connected to Socket.io server");
 });
 
-let userName = '';
+let userName = 'Usuário';
 let userslist = [];
 let error = '';
 
@@ -15,8 +15,8 @@ let chatPage = document.querySelector('#chatPage');
 let loginInput = document.querySelector('#loginNameInput');
 let textInput = document.querySelector('#chatTextInput');
 
-loginPage.style.display = 'flex';
-chatPage.style.display = 'none';
+loginPage.style.display = 'none';
+chatPage.style.display = 'flex';
 
 
 socket.on('bot_uttered', function (response) {

@@ -22,3 +22,37 @@ Avaliação da quarta sprint do programa de bolsas Compass.uol para formação e
 
 ---
 ---
+
+# API Utilizada:
+
+- API.
+
+# Tecnologias Utilizadas:
+- Python 
+- Rasa 
+- Spacy 
+- Dotenv
+- Pymongo 
+- MongoDB
+- Docker e docker-compose 
+- Okteto
+
+# Chatbot
+
+primeira busca na API. 
+
+# Docker
+
+Foram criados dois arquivos Dockerfile: um para a imagem do server do chatbot e o outro com a imagem do bot. O server.Dockerfile tem a função de executar o "rasa run actions" utilizado no terminal para acessar as actions do bot, além disso, ele precisa fazer a instalação do pymongo para que o bot consiga interagir com o mongoDB. O bot.Dockerfile faz a instalação do spacy para download do pt_core_news_sm. As imagens utilizadas foram utilizadas do DockerHub e foram carregadas em containers, as dependências externas foram instaladas e uma nova imagem era gerada, contendo as dependências externas necessárias. 
+
+# BOT Web
+
+O socket.io foi configurado em credentials.yml e manipulado dentro do main.js para usar o bot treinado com as informações que o usuário digita para ele.
+
+Foi criado mais um arquivo Dockerfile que monta uma imagem para rodar um servidor express, presente no arquivo server.js.
+
+<h3>bot</h3>
+
+<h3>Quando o usuário busca por algo que não está na API</h3>
+
+Link: https://web-evertonlwf.cloud.okteto.net

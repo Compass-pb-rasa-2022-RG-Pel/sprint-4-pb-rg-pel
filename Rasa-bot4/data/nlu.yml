@@ -1,0 +1,394 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - ei
+      - olá
+      - oi
+      - olá
+      - bom dia
+      - boa noite
+      - moin
+      - ei lá
+      - vamos
+      - ei cara
+      - bom dia
+      - boa noite
+      - boa tarde
+
+  - intent: goodbye
+    examples: |
+      - bom por
+      - te encontro mais tarde
+      - boa noite
+      - tchau
+      - adeus
+      - tenha um bom dia
+      - Vejo você por aí
+      - tchau tchau
+      - até logo
+
+  - intent: affirm
+    examples: |
+      - sim
+      - s
+      - na verdade
+      - é claro
+      - Isso soa bem
+      - correto
+
+  - intent: deny
+    examples: |
+      - não
+      - n
+      - Nunca
+      - Eu não acho
+      - não gosto disso
+      - de jeito nenhum
+      - Na verdade não
+
+  - intent: mood_great
+    examples: |
+      - perfeito
+      - excelente
+      - incrível
+      - sentindo-se um rei
+      - Maravilhoso
+      - Estou me sentindo muito bem
+      - Estou estou ótimo
+      - Eu sou incrível
+      - Eu vou salvar o mundo
+      - super empolgado
+      - extremamente bom
+      - tão perfeito
+      - tão bom
+      - tão perfeito
+
+  - intent: mood_unhappy
+    examples: |
+      - meu dia foi horrível
+      - Estou triste
+      - não me sinto muito bem
+      - Estou desapontado
+      - super triste
+      - Eu estou tão triste
+      - triste
+      - muito triste
+      - infeliz
+      - muinto ruim
+      - ruim
+      - extremamente triste
+      - tão triste
+      - tão ruim
+
+  - intent: bot_challenge
+    examples: |
+      - Você é um robô?
+      - Você é um humano?
+      - estou falando com um bot?
+      - estou falando com um humano?
+
+  - intent: horas
+    examples: |
+      - que horas são agora?
+      - horas
+      - qual o horário?
+      - você tem relógio?
+  
+  - intent: languages
+    examples: |
+      - que idiomas tem?
+      - idiomas?
+      - qual idioma?
+      - você tem idiomas?
+      - qual linguagem tem?
+      - linguagem
+      - linguagens
+      - qual linguagem?
+      - você tem quais linguagens?
+
+  - intent: inform_id
+    examples: |
+      - quero o conselho numero [1](number)
+      - [3](number)
+      - numero [5](number)
+      - um conselho por favor
+      - qual o conselho?
+      - você tem conselhos?
+      - qualquer conselho
+      - [10](number)
+      - [50](number)
+      - [100](number)
+      - [150](number)
+      - [200](number)
+      - [230](number)
+      - quero um conselho 
+      - manda um conselho 
+      - manda outro conselho 
+      - tchê um conselho
+
+  - intent: inform_name
+    examples: |
+      - Eu sou [Fulano](name)
+      - Meu nome é [Beltrano](name)
+      - Sou [Ana](name)
+      - [Carlos](name)
+      - Eu me chamo [Cicrano](name)
+      - Pode me chamar de [Fulano](name)
+      - Me chamo [Beltrano](name)
+      - Oi, me chamo [Cicrano](name)
+      - Se dirija a mim como [Larissa](name)
+      - Sou conhecida como [Amora](name)
+      - meu nome é [Feijo](name)
+      - Meu nome é [Carlos](name)
+      - meu nome é [Eduarda](name)
+      - meu nome é [Eduarda](name)
+      - [Miguel](name)
+      - [Davi](name)
+      - [Gabriel](name)
+      - [Arthur](name)
+      - [Lucas](name)
+      - [Matheus](name)
+      - [Pedro](name)
+      - [Guilherme](name)
+      - [Gustavo](name)
+      - [Rafael](name)
+      - [Felipe](name)
+      - [Bernardo](name)
+      - [Enzo](name)
+      - [Nicolas](name)
+      - [João](name)
+      - [Pedro](name)
+      - [Cauã](name)
+      - [Vitor](name)
+      - [Eduardo](name)
+      - [Daniel](name)
+      - [Henrique](name)
+      - [Murilo](name)
+      - [Vinicius](name)
+      - [Samuel](name)
+      - [Pietro](name)
+      - [João](name)
+      - [Leonardo](name)
+      - [Caio](name)
+      - [Heitor](name)
+      - [Lorenzo](name)
+      - [Isaac](name)
+      - [Lucca](name)
+      - [Thiago](name)
+      - [João](name)
+      - [João](name)
+      - [Theo](name)
+      - [Bruno](name)
+      - [Bryan](name)
+      - [Carlos](name)
+      - [Luiz](name)
+      - [Breno](name)
+      - [Emanuel](name)
+      - [Ryan](name)
+      - [Vitor](name)
+      - [Yuri](name)
+      - [Benjamin](name)
+      - [Erick](name)
+      - [Enzo](name)
+      - [Fernando](name)
+      - [Joaquim](name)
+      - [André](name)
+      - [Tomás](name)
+      - [Francisco](name)
+      - [Rodrigo](name)
+      - [Igor](name)
+      - [Antonio](name)
+      - [Ian](name)
+      - [Luiz](name)
+      - [Juan](name)
+      - [João](name)
+      - [Diogo](name)
+      - [Otávio](name)
+      - [Nathan](name)
+      - [Calebe](name)
+      - [Danilo](name)
+      - [Luan](name)
+      - [Luiz](name)
+      - [Kaique](name)
+      - [Alexandre](name)
+      - [João](name)
+      - [Iago](name)
+      - [Ricardo](name)
+      - [Raul](name)
+      - [Marcelo](name)
+      - [Julio](name)
+      - [Cauê](name)
+      - [Benício](name)
+      - [Vitor](name)
+      - [Augusto](name)
+      - [Pedro](name)
+      - [Luiz](name)
+      - [Giovanni](name)
+      - [Renato](name)
+      - [Diego](name)
+      - [João](name)
+      - [Renan](name)
+      - [Luiz](name)
+      - [Anthony](name)
+      - [Lucas](name)
+      - [Thales](name)
+      - [Luiz](name)
+      - [Henry](name)
+      - [Marcos](name)
+      - [Kevin](name)
+      - [Levi](name)
+      - [Enrico](name)
+      - [João](name)
+      - [Hugo](name)
+      - [Luiz](name)
+      - [Matheus](name)
+      - [Helena](name)
+      - [Alice](name)
+      - [Laura](name)
+      - [Manuela](name)
+      - [Valentina](name)
+      - [Sophia](name)
+      - [Isabella](name)
+      - [Heloísa](name)
+      - [Luiza](name)
+      - [Júlia](name)
+      - [Lorena](name)
+      - [Lívia](name)
+      - [Maria](name)
+      - [Cecília](name)
+      - [Eloá](name)
+      - [Giovanna](name)
+      - [Maria](name)
+      - [Maria](name)
+      - [Mariana](name)
+      - [Lara](name)
+      - [Beatriz](name)
+      - [Antonella](name)
+      - [Maria](name)
+      - [Emanuelly](name)
+      - [Isadora](name)
+      - [Ana](name)
+      - [Melissa](name)
+      - [Ana](name)
+      - [Ana](name)
+      - [Esther](name)
+      - [Lavínia](name)
+      - [Maitê](name)
+      - [Maria](name)
+      - [Maria](name)
+      - [Sarah](name)
+      - [Elisa](name)
+      - [Liz](name)
+      - [Yasmin](name)
+      - [Isabelly](name)
+      - [Alícia](name)
+      - [Clara](name)
+      - [Isis](name)
+      - [Rebeca](name)
+      - [Rafaela](name)
+      - [Marina](name)
+      - [Ana](name)
+      - [Maria](name)
+      - [Agatha](name)
+      - [Gabriela](name)
+      - [Catarina](name)
+      - [Letícia](name)
+      - [Mirella](name)
+      - [Nicole](name)
+      - [Luna](name)
+      - [Maria](name)
+      - [Olívia](name)
+      - [Vitória](name)
+      - [Maria](name)
+      - [Maria](name)
+      - [Ana](name)
+      - [Allana](name)
+      - [Maria](name)
+      - [Milena](name)
+      - [Emilly](name)
+      - [Ayla](name)
+      - [Maria](name)
+      - [Maya](name)
+      - [Bianca](name)
+      - [Clarice](name)
+      - [Aurora](name)
+      - [Larissa](name)
+      - [Mariah](name)
+      - [Pietra](name)
+      - [Laís](name)
+      - [Stella](name)
+      - [Eduarda](name)
+      - [Maria](name)
+      - [Ana](name)
+      - [Ana](name)
+      - [Maria](name)
+      - [Carolina](name)
+      - [Ana](name)
+      - [Malu](name)
+      - [Gabrielly](name)
+      - [Ana](name)
+      - [Analu](name)
+      - [Maria](name)
+      - [Ana](name)
+      - [Amanda](name)
+      - [Louise](name)
+      - [Heloise](name)
+      - [Fernanda](name)
+      - [Ana](name)
+      - [Melina](name)
+      - [Maria](name)
+      - [Bella](name)
+      - [Joana](name)
+      - [Isabel](name)
+      - [Melinda](name)
+      - [Pérola](name)
+
+  - intent: randon_advices
+    examples: |
+      - Aleatorio
+      - manda um aleatório
+      - pode escolher um aleatório
+      - sorteia um ai
+      - Quero tentar denovo
+      - Quero outra vez
+      - Desejo conselhos novamente
+      - Outra vez por favor
+      - Eu quero começar de novo
+      - Começe novamente, por favor
+      - Começa denovo
+      - Inicie novamente
+      - Denovo
+      - Outra vez
+      - Do inicio
+      - Não fiquei feliz, quero denovo
+      - quero tentar outra vez
+      - Quero tentar outra vez
+
+  - intent: inform_language
+    examples: |
+      - [en](lang) English
+      - [ar](lang) Arabic
+      - [az](lang) Azerbaijani
+      - [zh](lang) Chinese
+      - [cs](lang) Czech
+      - [nl](lang) Dutch
+      - [fi](lang) Finnish
+      - [fr](lang) French
+      - [de](lang) German
+      - [hi](lang) Hindi
+      - [hu](lang) Hungarian
+      - [id](lang) Indonesian
+      - [ga](lang) Irish
+      - [it](lang) Italian
+      - [ja](lang) Japanese
+      - [ko](lang) Korean
+      - [pl](lang) Polish
+      - [pt](lang) Portuguese
+      - [ru](lang) Russian
+      - [es](lang) Spanish
+      - [sv](lang) Swedish
+      - [tr](lang) Turkish
+      - [uk](lang) Ukranian
+      - [vi](lang) Vietnamese
