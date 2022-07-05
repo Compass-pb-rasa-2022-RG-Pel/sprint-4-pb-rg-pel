@@ -15,7 +15,7 @@ from rasa_sdk.events import SlotSet
 from pymongo import MongoClient
 import requests
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import re
 
 class ActionProcuraCep(Action):
@@ -30,17 +30,13 @@ class ActionProcuraCep(Action):
         cep = tracker.get_slot("cep")
         nome = tracker.get_slot("nome")
 
-        dotenv_path = os.path.join(os.path.dirname(__file__), '../.env')                  
-        load_dotenv(dotenv_path)
-        DB_USER = os.getenv("DB_USER")
-        DB_PASS = os.getenv("DB_PASS")
-
-        client = MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASS}@cluster0.ioqto.mongodb.net/Logradouros?retryWrites=true&w=majority")
+        ##conexão com o banco
+        client = MongoClient(f"mongodb+srv://Juan:juan120498@cluster0.ioqto.mongodb.net/Logradouros?retryWrites=true&w=majority")
 
         db = client['database']
         col = db['botCEP']
         
-
+        ##Verifica se o CEP já consta base de dados
         for logradouro in col.find({}, {'_id': False, 'nome': False}):
             if(cep in logradouro['cep pesquisado']):
                 endereco = logradouro

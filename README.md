@@ -131,7 +131,7 @@
 - Será necessário configurar o arquivo "credentials.yml" com a URL pública disponibilizada através do Ngrok.
 ![Ngrok](/src/ngrok.png)
 - Através do Ngrok dispare o comando "ngrok http 5005" e após será disponibilizado conforme exemplo acima, uma URL pública.
-- A alteração deve ser feita no local onde está disposto a linha vermelha, conforme imagem abaixo. ![Ngrok-product](/src/ngrok-credentials.png)
+- A alteração deve ser feita no local onde está disposto a linha vermelha, conforme imagem abaixo. ![Ngrok-credentials](/src/ngrok-credentials.png)
 - Após o modelo de treinamento ser gerado basta carregar o "docker-compose.yml" com o comando "docker-compose up", todos os comandos internos serão disparados sozinhos.
 
 ---
