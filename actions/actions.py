@@ -30,10 +30,9 @@ class Habilidades(Action):
             
             if int(minha_colcao.count_documents({"usuario": usuario, "pokemon": nome})) > 0:
                 dispatcher.utter_message(text=f"Você já consultou o pokemon {nome}")
-                return [SlotSet("nome_pokemon", None)]
             else:
                 print("Não localizado")
-
+                
         except:
             print("Não foi possível conectar ao banco de dados")
             
