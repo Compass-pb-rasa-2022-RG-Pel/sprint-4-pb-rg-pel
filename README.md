@@ -106,8 +106,18 @@ Api midea stack
 
 
 
-### Tive alguns problemas com a conexão da parte front onde criei o código com uma interface similar a um chatbot real para o projeto, e então assim com o okteto nos trazendo grande dificuldades de link, onde ele não conseguia fazer a construção da imagens e seu acesso pois não conseguiamos a combinação e defição para rodar com o mongo,dockerfile e okteto simultaneamente, mas após muito esforço e tentativas chegamos ao final e a conclusão.
+### Tive alguns problemas com a conexão na parte front, onde criei um html e um java scrit para conectar e completar  o código com uma interface similar a um chatbot real para o projeto, e então assim com o okteto nos trazendo grande dificuldades de link, onde ele não conseguia fazer a construção da imagens e seu acesso pois não conseguiamos a combinação e defição para rodar com o mongo,dockerfile e okteto simultaneamente, mas após muito esforço e tentativas chegamos ao final e a conclusão.
 
+
+# Tecnologias Utilizadas:
+- Python 
+- Rasa 
+- Spacy 
+- Dotenv
+- Pymongo 
+- MongoDB
+- Docker e docker-compose 
+- Okteto
 
 
 - 
