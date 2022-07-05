@@ -14,7 +14,7 @@ pipeline:
    model: "pt_core_news_md"
  - name: SpacyTokenizer
  - name: SpacyFeaturizer
- - name: WhitespaceTokenizer
+ #- name: WhitespaceTokenizer
  - name: RegexFeaturizer
  - name: LexicalSyntacticFeaturizer
    "features": [

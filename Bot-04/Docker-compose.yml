@@ -19,6 +19,8 @@ services:
       - --credentials
       - credentials.yml
       - --debug
+      - --port
+      - "8080"
   container-rasa-action:
     build:
       context: .
