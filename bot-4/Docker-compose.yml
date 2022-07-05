@@ -4,12 +4,15 @@ services:
     build:
       context: .
       dockerfile: rasaDock.Dockerfile
+    networks:
+      - rasa-network
     ports:
       - 5005:5056
     depends_on:
       - container-server-bot
     volumes:
       - ./:/app
+    public: true
     command:
       - run
       - --enable-api
@@ -22,6 +25,8 @@ services:
       context: .
       dockerfile: actionsRasa.Dockerfile
     image: rasa-actions:latest
+    networks: 
+      - rasa-network
     ports:
       - 5055:5055
     volumes:
