@@ -63,6 +63,6 @@ class Habilidades(Action):
             dispatcher.utter_message(text=f"ATAQUE ESPECIAL: {ataque_especial}")
             dispatcher.utter_message(text=f"DEFESA ESPECIAL: {defesa_especial}")
             dispatcher.utter_message(text=f"VELOCIDADE: {velocidade}")
-            dispatcher.utter_message(image = link_foto}")
+            dispatcher.utter_message(image = link_foto)
             
             return [SlotSet("nome_pokemon", None)] 
