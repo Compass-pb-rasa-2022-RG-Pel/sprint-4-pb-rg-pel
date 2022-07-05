@@ -46,13 +46,16 @@ Api midea stack
 
 ---
 
-## O primeiro Bot-1 foi postado com a parte de treinamento e codigos funcionais.
+### O primeiro Bot-1 foi postado com a parte de treinamento e codigos funcionais.
 
-## O segundo Bot-2 foi incluido a conexão do mongodb e sua conexão e função para salvar o historico de acesso dos usuarios que usaram a comunicação do Bot.
 
-## o terceiro BOt-3 foi incluido os arquivos para a conexão com o Docker.
+### O segundo Bot-2 foi incluido a conexão do mongodb e sua conexão e função para salvar o historico de acesso dos usuarios que usaram a comunicação do Bot.
 
-## o quarto Bot-4 teve a interação e inclução no okteto para a hospedagem e geração do link de acesso do bot funcionando.
+
+### o terceiro BOt-3 foi incluido os arquivos para a conexão com o Docker.
+
+
+### o quarto Bot-4 teve a interação e inclução no okteto para a hospedagem e geração do link de acesso do bot funcionando.
 
 
 
@@ -60,5 +63,5 @@ Api midea stack
 
 ---
 ---
-## Tive alguns problemas com a conexão da parte front onde criei o codigo com uma interface similar a um chatbot real para o projeto, e então assim com o okteto nos trazendo grande dificuldades de link, onde ele não conseguia fazer a construção da imagens e seu acesso.
+### Tive alguns problemas com a conexão da parte front onde criei o codigo com uma interface similar a um chatbot real para o projeto, e então assim com o okteto nos trazendo grande dificuldades de link, onde ele não conseguia fazer a construção da imagens e seu acesso.
 - 
