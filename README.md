@@ -38,11 +38,21 @@ Avaliação da quarta sprint do programa de bolsas Compass.uol para formação e
 - Docker e docker-compose 
 - Okteto
 
-# Chatbot web
+# Bot
 
- O desenvolvimento foi realizado em NodeJs com o framework [Express](https://expressjs.com/pt-br/)
+O Bot desenvolvido possui as funcionalidades de exibir conselhos em diferentes idiomas e persistir as consultas no banco de dados [mongo](https://www.mongodb.com/).
+
+# web
+
+O desenvolvimento foi realizado em NodeJs com o framework [Express](https://expressjs.com/pt-br/), é foi utilizado para a comunicação com o server rasa o socket.io onde foi necessário configurar o arquivo credentials.yml.
+
+# Criação do Chatbot
+
+O desenvolvimento do chatbot foi realizado com o framework [Rasa](https://rasa.com/) sequindo os passo disponibilizados na documentação.
 
 # Docker-compose
+
+Para colocar a aplicação no [Okteto](https://www.okteto.com/) foi utilizado o arquivo docker-compose.
 
 ```python
     version: '3.0'
@@ -114,12 +124,10 @@ Avaliação da quarta sprint do programa de bolsas Compass.uol para formação e
         rasa-network:
             driver: bridge
 ```
+# Dificuldades encontradas
 
-# BOT Web
+O servidor Rasa no okteto não abre a url pública quando configurada para a porta padrão 5005, onde foi necessário realizar bind para outra porta.  
 
-O socket.io foi configurado em credentials.yml e manipulado dentro do main.js para usar o bot treinado com as informações que o usuário digita para ele.
-
-
-# aplicação
+# Link aplicação
 
 Link: https://web-evertonlwf.cloud.okteto.net
