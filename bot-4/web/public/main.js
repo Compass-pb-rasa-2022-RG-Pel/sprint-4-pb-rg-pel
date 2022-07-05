@@ -1,3 +1,4 @@
+// definindo comunicação com o socket.io
 const socket = io("http://localhost:5005")
 socket.on("connect",function () {
     console.log("conectado")
@@ -23,7 +24,7 @@ socket.on("bot_uttered", function (resp) {
 })
 
 function insert_cats(msg) {
-    let ul = document.querySelector("#chat")
+    let ul = document.querySelector(".chat")
     ul.innerHTML += '<li>'+msg+'</li>'
 }
 

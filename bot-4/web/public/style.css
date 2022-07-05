@@ -1,0 +1,7 @@
+.msgs {
+    border: 2px solid #f00;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+}

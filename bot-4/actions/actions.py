@@ -10,7 +10,7 @@ from rasa_sdk.events import SlotSet
 import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
-import re
+
 
 
 class ActionHelloWorld(Action):
@@ -22,11 +22,11 @@ class ActionHelloWorld(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-
+        # definindo variaveis para acessar api
         user = tracker.get_slot('user')
         cat = tracker.get_slot("breeds")
 
-        ## Lendo arquivo .env
+        # Lendo arquivo .env
         dotenv_path = os.path.join(os.path.dirname(__file__), '../bot-2/.env')       
         load_dotenv(dotenv_path)
         DB_USER = "rasa-rasa"
@@ -34,17 +34,18 @@ class ActionHelloWorld(Action):
         print(DB_USER)
         print(DB_PASS)
 
-         # conexão com o MongoDB
+        # conexão com o MongoDB
         client = MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASS}@clustercat.5ztbxvd.mongodb.net/?retryWrites=true&w=majority")
         db = client["rasa-api"]
         collection = db["cats-collection"]
         print(db)
 
-    
+        # conectando com a api CatApi
         url= f'https://api.thecatapi.com/v1/images/search?breeds_ids={cat}'
         json_data = requests.get(url).json()
         data = json_data[0].get('url')
 
+        # verificando se a busca já está no banco
         if (collection.count_documents({"cat":cat, "url":url})):
 
             resp = "Esse gato já consta na nossa consulta"
@@ -55,7 +56,7 @@ class ActionHelloWorld(Action):
             resp2 = f"Voce pode conferir aqui {catDB}"
             dispatcher.utter_message(text= resp2)
 
-
+        # se não estiver, faz novo registro e retorna para o usuário
         else:
             
             resp = f"Olá {user}, o você solicitou o gato raça {cat}, aqui estão link {data} <image src={data} height=100px ></image>"
