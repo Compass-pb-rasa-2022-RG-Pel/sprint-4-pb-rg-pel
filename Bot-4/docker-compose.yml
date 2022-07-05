@@ -40,6 +40,18 @@ services:
       - 27017:27017
     volumes:
       - action
+  web:
+    build:
+      context: ./web
+      dockerfile: web.Dockerfile
+    image: webchat
+    container_name: web
+    depends_on:
+      - "bot"
+    networks:
+      - all
+    ports:
+      - 8080:8080
 
 networks:
   all:
