@@ -45,6 +45,8 @@ Api midea stack
 ### Na pasta web acesse o index.html em seu navegador,onde estará o chatbot para executar.
 
 ---
+# Como foi a montagem e criação do Bot!
+
 
 ### O primeiro Bot-1 foi postado com a parte de treinamento e codigos funcionais.
 
