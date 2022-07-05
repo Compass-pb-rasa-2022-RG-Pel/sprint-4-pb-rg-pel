@@ -11,13 +11,22 @@ O chatbot construído tem como objetivo criar uma conversa com o usuário a qual
 
 Dependências
 
-Python 3.8
+Python 3.8.13
 
 Rasa
+
+MongoDB
+
+Docker e docker-compose
+
+Okteto
 
 Conexão com a API
 
 A API utilizada nesse projeto foi a DOG API  https://dog.ceo/api/breed/{dog}/images/random, a qual, a partir da escrita da raça do cachorro busca a respectiva imagem.
+
+![image](https://user-images.githubusercontent.com/71715202/177291249-62ae6c24-744e-48cd-b9ff-29b363a05db9.png)
+
 
 # Utilizando o ChatBot
 
@@ -33,11 +42,12 @@ Digite o seu primeiro nome
 Informe a raça do cachorro que deseja visualizar
 
 ---
+
 # Features
  
  Usuário informa seu nome
 
- Usuário solicita ver uma raça de cachorro
+ Usuário solicita saber sobre uma raça de cachorro
 
  Salvar histórico de pesquisa do usuário
 
@@ -51,13 +61,14 @@ source ../venv/bin/activate
 
 python=3.8.13
 
-use pipenv
-
-pipenv install
-
 
 Bot-1
 <<<<<<< HEAD
+
+Tecnologias usadas:
+
+Rasa
+Node.js
 
 Testando localmente
 
@@ -81,13 +92,15 @@ rasa run actions
 
 acessar localmente com o arquivo index.html (Abra o arquivo em um navegador qualquer)
 
-http://localhost:5005/webhooks/rest/webhook
-
-
 
 Bot-2
 
-Testando MongoDB
+
+Rasa
+
+Node.js
+
+MongoDB
 
 Instalar dependências
 
@@ -106,7 +119,10 @@ start rasa server
 rasa run actions
 
 acessar localmente com o arquivo index.html (Abra o arquivo em um navegador qualquer)
-http://localhost:5005/webhooks/rest/webhook
+
+Foi conectado ao mongoDB
+
+Dificuldade encontrada: configurar o dotenv adquadamente.
 
 Bot-3
 
@@ -115,16 +131,33 @@ Testando com docker
 
 Executar
 
- docker-compose up
+docker-compose up
 
 acessar localmente com o arquivo index.html (Abra o arquivo em um navegador qualquer)
-http://localhost:5005/webhooks/rest/webhook
+
+Foram desenvolvidos containers, um para as actions, outro para o rasa, e outro para o banco MongoDB. Foi criado também o arquivo docker-compose.yml (para a execução ordenada dos arquivos dockerfile)
 
 Bot-4
 
-Subindo o chat no okteto pelo CLI
+Rasa
+
+Node
+
+Docker
+
+Kubernetes - Okteto
+
+Subindo o Bot-4 no okteto pelo CLI
+
+comando:
 
 okteto deploy --build   -->
+
+![image](https://user-images.githubusercontent.com/71715202/177292513-f73862ab-52f3-4ff0-8e05-7fe1617726c6.png)
+
+![image](https://user-images.githubusercontent.com/71715202/177291715-e81c3421-5be7-494b-b186-9edac7850c2f.png)
+
+link para visualização do bot no Okteto:
 
 https://web-tatius7.cloud.okteto.net/
 --- -->
