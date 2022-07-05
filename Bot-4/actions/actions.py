@@ -7,6 +7,7 @@ from rasa_sdk.executor import CollectingDispatcher
 import requests
 from newspaper import Article
 from pymongo import MongoClient
+import pymongo
 import os
 import nltk
 
@@ -15,7 +16,7 @@ nltk.data.path.append("/root/nltk_data/")
 nltk.download('punkt')
 
 # Aqui está Trazendo variáveis de ambiente para API e MONGODB
-MONGO_CLIENT = os.getenv('MONGODB')
+#MONGO_CLIENT = os.getenv('MONGODB')
 API_KEY = os.getenv('API_KEY')
 
 
@@ -71,9 +72,8 @@ class ActionMediaStack(Action):
 
         keyword = tracker.get_slot("keyword")
         name = tracker.get_slot("name")
-
-        client = MongoClient(
-            "mongodb+srv://Rodrigo:rasa1234@cluster0.9nwjp.mongodb.net/?retryWrites=true&w=majority")
+        client = MongoClient("mongodb://root:root@mongodb:27017/")
+        #client = MongoClient("mongodb+srv://Rodrigo:rasa1234@cluster0.9nwjp.mongodb.net/?retryWrites=true&w=majority")
         db = client["rasa"]
         collection = db["history"]
 

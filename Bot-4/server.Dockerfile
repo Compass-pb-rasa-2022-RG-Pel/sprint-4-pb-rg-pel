@@ -14,6 +14,8 @@ RUN pip install -r requirements-actions.txt
 # Copia as actions para o workdir
 COPY ./actions /app/actions
 
-RUN pip install nltk
-RUN python -m nltk.downloader punkt
+USER root
+
+# RUN pip install nltk
+# RUN python -m nltk.downloader punkt
 

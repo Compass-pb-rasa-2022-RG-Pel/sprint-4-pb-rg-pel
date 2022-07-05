@@ -1,0 +1,119 @@
+version: "3.1"
+
+nlu:
+
+- regex: keyword
+  examples: | 
+    - /([A-Z a-z])/
+
+- intent: saudacoes
+  examples: |
+    - olá
+    - Ola
+    - Oi
+    - Oie
+    - Oiee
+    - bom dia
+    - boa tarde
+    - boa noite
+
+- intent: pesquisa
+  examples: |
+    - gostaria de saber mais sobre [politica](keyword)
+    - gostaria de saber mais sobre [esportes](keyword)
+    - gostaria de saber mais sobre [ciencia](keyword)
+    - gostaria de saber mais sobre [negócios](keyword)
+    - gostaria de saber mais sobre [tecnologia](keyword)
+    - gostaria de saber mais sobre [gerais](keyword)
+    - gostaria de saber mais sobre [geral](keyword)
+    - me fale sobre [tecnologia](keyword)
+    - [tecnologia](keyword)
+    - queria saber sobre [negócios](keyword)
+    - [negócios](keyword)
+    - [alguma coisa](keyword)
+    - pesquise sobre [esportes](keyword)
+    - perquise [esportes](keyword)
+    - [esportes](keyword)
+    - [futebol](keyword)
+    - [filmes](keyword)
+    - geral [noticias](keyword)
+    - me traga notícias a respeito de [futebol](keyword)
+    - quero saber de [cinema](keyword)
+    - quero mais saber a respeito de [eleições](keyword)
+    - sobre [filmes lancamentos](keyword)
+    - me fale de [livros](keyword)
+    - me fale mais de [covid19](keyword)
+
+
+- intent: despedir
+  examples: |
+    - tchau
+    - adeus
+    - Até mais,
+    - Obrigado, até.
+    - tchau tchau.
+    - até
+    - ate
+
+- intent: afirmar
+  examples: |
+    - sim
+    - exatamente
+    - afirmo
+    - certo
+    - exato
+    - isso ai
+    - ok
+
+- intent: negar
+  examples: |
+    - não
+    - nao
+    - nao conheco
+    - não tenho essa resposta
+    - ainda não sei
+    - nenhum
+    - nunca
+    - jamais
+    - nego
+    - negativo
+
+- intent: bot_challenge
+  examples: |
+    - você é um bot?
+    - você é humano?
+    - estou falando com um bot?
+    - estou falando com um humano?
+    - com quem estou falando?
+
+- intent: informacoes
+  examples: |
+    - informaçoes
+    - minhas informaçoes
+    - o que voce sabe de mim?
+
+- intent: agradecimento
+  examples: |
+    - Obrigado
+    - Grato
+    - Muito obrigado
+    - Agradeço
+    - Agradecido
+
+- intent: registro
+  examples: |
+    - registrar
+    - cadastrar
+
+- intent: tudo_bem
+  examples: |
+    - tudo bem
+    - tudo bom
+    - como vai?
+    - Está tudo bem?
+
+- intent: agradecimento
+  examples: |
+    - obrigado
+    - muito obrigado
+    - grato!

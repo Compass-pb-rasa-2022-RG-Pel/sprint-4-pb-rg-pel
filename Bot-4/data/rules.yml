@@ -1,0 +1,54 @@
+version: "3.1"
+
+rules:
+
+- rule: Saudações
+  steps:
+  - intent: saudacoes
+  - action: utter_saudacoes 
+  - action: name_form
+  - active_loop: name_form
+    
+
+- rule: Dizer tchau quando usuario dizer tchau
+  steps:
+  - intent: despedir
+  - action: utter_despedir
+
+- rule: Dizer que é um bot
+  steps:
+  - intent: bot_challenge
+  - action: utter_iambot
+
+- rule: Retorna informações
+  steps:
+  - intent: informacoes
+  - action: utter_slots_values
+
+- rule: Retorna agradecimento
+  steps:
+  - intent: agradecimento
+  - action: utter_agradecimento
+
+- rule: Retorna pesquisa
+  steps:
+  - intent: pesquisa
+  - action: action_media_stack
+
+- rule: Ativa Formulario
+  steps:
+  - intent: registro
+  - action: name_form
+  - active_loop: name_form
+
+- rule: Submete form
+  condition:
+  - active_loop: name_form
+  steps:
+  - action: name_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: utter_apresentar

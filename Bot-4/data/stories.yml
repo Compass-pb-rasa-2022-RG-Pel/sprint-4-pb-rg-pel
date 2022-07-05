@@ -1,0 +1,48 @@
+version: "3.1"
+
+stories:
+
+
+- story: chat_1
+  steps:
+  - intent: cumprimentar
+  - action: utter_saudacoes
+  - action: name_form
+  - active_loop: name_form
+  - intent: pesquisa
+  - action: action_media_stack
+  - intent: agradecimento
+  - action: utter_agradecimento
+  - intent: despedir
+  - action: utter_despedir
+  
+
+- story: chat_2
+  steps:
+  - intent: pesquisa
+  - action: action_media_stack
+  - intent: agradecimento
+  - action: utter_agradecimento
+
+- story: chat_3
+  steps:
+  - intent: pesquisa
+  - action: action_media_stack
+  - intent: agradecimento
+  - action: utter_agradecimento
+  - intent: despedir
+  - action: utter_despedir
+
+- story: questiona_bot
+  steps:
+  - intent: bot_challenge
+  - action: utter_iambot
+  - intent: agradecimento
+  - action: utter_agradecimento
+
+- story: finalização
+  steps:
+  - intent: agradecimento
+  - action: utter_agradecimento
+  - intent: despedir
+  - action: utter_despedir

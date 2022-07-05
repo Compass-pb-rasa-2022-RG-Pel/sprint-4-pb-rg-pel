@@ -1,4 +1,4 @@
-const socket = io("http://localhost:5005")
+const socket = io("https://bot-rodrigovaladao01.cloud.okteto.net/")
 socket.on("connect", function () {
     console.log("conectado")
     socket.emit("session_request", { session_id: "Rodrigo" })

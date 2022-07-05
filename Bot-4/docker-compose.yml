@@ -8,7 +8,7 @@ services:
     networks:
       - all
     ports:
-      - 5005:5005
+      - 5005:5056
     volumes:
       - ./:/app
     public: true
@@ -17,13 +17,13 @@ services:
       - --enable-api
       - --cors
       - "*"
-
+      - -p 5056
   server-bot:
     build:
       context: .
       dockerfile: server.Dockerfile
     image: rasa-action-server
-    container_name: actions
+    # container_name: actions
     networks:
       - all
     ports:
@@ -32,18 +32,36 @@ services:
       - "./actions:/app/actions"
     environment:
       - API_KEY=ca89b084ffffaa5e905c7c0eda443631
-      - MONGO_DB=mongodb+srv://Rodrigo:rasa1234@cluster0.9nwjp.mongodb.net/?retryWrites=true&w=majority
+      - 
+        #MONGO_DB=mongodb+srv://Rodrigo:rasa1234@cluster0.9nwjp.mongodb.net/?retryWrites=true&w=majority
 
   mongodb:
     image: mongo
+    container_name: db
+    networks:
+      - all
     ports:
       - 27017:27017
-    volumes:
-      - action
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: sprint4
+
+  mongo-e:
+    image: mongo-express
+    networks:
+      - all
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+      ME_CONFIG_MONGODB_URL: "mongodb://root:root@mongodb:27017/"
+
   web:
     build:
-      context: .
-      dockerfile: web.Dockerfile
+      context: ./web
+      dockerfile: Web.dockerfile
     image: webchat
     container_name: web
     depends_on:
@@ -56,5 +74,5 @@ services:
 networks:
   all:
     driver: bridge
-    driver_opts:
-      com.docker.network.enable_ipv6: "true"
+    # driver_opts:
+    #   com.docker.network.enable_ipv6: "true"
