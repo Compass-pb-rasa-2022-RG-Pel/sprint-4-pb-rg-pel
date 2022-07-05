@@ -2,23 +2,129 @@
 Avaliação da quarta sprint do programa de bolsas Compass.uol para formação em chatbot Rasa.
 
 ---
+# Chatbot - Dog API
 
-## Execução
+O chatbot construído tem como objetivo criar uma conversa com o usuário a qual ele irá armazenar o nome do usuário e após este informar sua inteção em ver um cachorro e sua respectiva raça, o bot retornará uma mensagem e um link com a imagem, bem como a imagem.
 
-- Bot-1: **Crie um bot Rasa em Português** que use um formulário para pegar o nome e uma preferência do usuário para acessar a API utilizada nas [sprint 1](https://github.com/Compass-pb-rasa-2022-RG-Pel/sprint-1-pb-rg-pel) e/ou [sprint 2](https://github.com/Compass-pb-rasa-2022-RG-Pel/sprint-2-pb-rg-pel). O bot questiona o usuário, cujas respostas irão para slots em um form. A consulta à API deverá ocorrer em uma action e retornar o dado em texto e/ou imagem ao usuário. Dicas de forms: <https://learning.rasa.com/rasa-forms-3/> e código em <https://github.com/RasaHQ/rasa-3.x-form-examples>
-- Bot-2: Agregue o banco de dados ao bot-1, como feito na [sprint 2](https://github.com/Compass-pb-rasa-2022-RG-Pel/sprint-2-pb-rg-pel) e na [sprint 3](https://github.com/Compass-pb-rasa-2022-RG-Pel/sprint-3-pb-rg-pel) com MongoDB, para armazenamento do histórico de consultas. O bot deve estar apto a dizer se a consulta já foi feita ou não e dar a resposta sem consulta à API.
-- Bot-3: Coloque o bot-2 em docker, utilizando docker-compose. Dica: <https://rasa.com/docs/rasa/docker/deploying-in-docker-compose/>
-- Bot-4: Coloque o bot-3 em kubernetes no Okteto. Dica: <https://learning.rasa.com/deployment/kubernetes-commands/>
+
+## Desenvolvimento
+
+Dependências
+
+Python 3.8
+
+Rasa
+
+Conexão com a API
+
+A API utilizada nesse projeto foi a DOG API  https://dog.ceo/api/breed/{dog}/images/random, a qual, a partir da escrita da raça do cachorro busca a respectiva imagem.
+
+# Utilizando o ChatBot
+
+
+Para utilizar a aplicação com o bot, basta abrir um terminal e executar o comando "run rasa actions", e em outro terminal executar o comando "rasa shell" e então é só iniciar uma conversa com o bot.
+
+Dê os cumprimentos ao chatbot
+
+Diga sua intenção ao chatbot
+
+Digite o seu primeiro nome
+
+Informe a raça do cachorro que deseja visualizar
 
 ---
+# Features
+ 
+ Usuário informa seu nome
 
-## Entrega
+ Usuário solicita ver uma raça de cachorro
 
-- Fazer o clone do repositório da sprint-4-pb-rg-pel;
-- Criar uma branch no repositório com o formato nome-sobrenome (Exemplo: daniel-muller);
-- Na sua branch, criar uma pasta para cada exercício, no formato bot-número (Exemplo: bot-1);
-- Subir o trabalho na branch com um readme.md, documentando detalhes sobre como a avaliação foi desenvolvida e como utilizar o sistema;
-- O prazo de entrega é até às 10h do dia 05/07/2022 no repositório do github (<https://github.com/Compass-pb-rasa-2022-RG-Pel/sprint-4-pb-rg-pel>).
+ Salvar histórico de pesquisa do usuário
 
----
----
+ Retornar a solicitação/ histórico de pesquisa de um usuário caso tenha se repetido(preferência)
+
+Setup
+
+Inicializando ambiente virtual com:
+
+source ../venv/bin/activate
+
+python=3.8.13
+
+use pipenv
+
+pipenv install
+
+
+Bot-1
+<<<<<<< HEAD
+
+Testando localmente
+
+Instalar dependências
+
+pip install -r requirements.txt
+
+=======
+
+Treinando bot
+
+rasa train
+
+Executando o bot shell
+
+rasa run --cors "*"
+
+start rasa server
+
+rasa run actions
+
+acessar localmente com o arquivo index.html (Abra o arquivo em um navegador qualquer)
+
+http://localhost:5005/webhooks/rest/webhook
+
+
+
+Bot-2
+
+Testando MongoDB
+
+Instalar dependências
+
+pip install -r requirements.txt
+
+Treinando bot
+
+rasa train
+
+Executando o bot shell
+
+rasa run --cors "*"
+
+start rasa server
+
+rasa run actions
+
+acessar localmente com o arquivo index.html (Abra o arquivo em um navegador qualquer)
+http://localhost:5005/webhooks/rest/webhook
+
+Bot-3
+
+
+Testando com docker
+
+Executar
+
+ docker-compose up
+
+acessar localmente com o arquivo index.html (Abra o arquivo em um navegador qualquer)
+http://localhost:5005/webhooks/rest/webhook
+
+Bot-4
+
+Subindo o chat no okteto pelo CLI
+
+okteto deploy --build   -->
+
+https://web-tatius7.cloud.okteto.net/
+--- -->
