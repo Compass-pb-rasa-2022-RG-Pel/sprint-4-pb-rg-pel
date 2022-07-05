@@ -15,7 +15,7 @@ from rasa_sdk.events import SlotSet
 from pymongo import MongoClient
 import requests
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import re
 
 class ActionProcuraCep(Action):
@@ -36,7 +36,7 @@ class ActionProcuraCep(Action):
         db = client['database']
         col = db['botCEP']
         
-
+        ##Verifica se o CEP já consta na base de dados
         for logradouro in col.find({}, {'_id': False, 'nome': False}):
             if(cep in logradouro['cep pesquisado']):
                 endereco = logradouro

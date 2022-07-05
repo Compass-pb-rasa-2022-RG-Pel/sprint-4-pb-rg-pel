@@ -1,0 +1,4 @@
+okteto.exe
+requirements.txt
+venv/
+src/

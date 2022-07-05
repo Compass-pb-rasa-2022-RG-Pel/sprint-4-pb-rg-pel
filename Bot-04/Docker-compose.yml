@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: bot.Dockerfile
     ports:
-      - 5005:5005
+      - 5005:5056
     depends_on:
       - container-rasa-action
     volumes:
@@ -19,8 +19,7 @@ services:
       - --credentials
       - credentials.yml
       - --debug
-      - --port
-      - "8080"
+      - -p 5056
   container-rasa-action:
     build:
       context: .

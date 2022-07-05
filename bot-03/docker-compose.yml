@@ -1,15 +1,13 @@
-version: '3'
+version: "3.0"
 services:
-
-  chatbot:
+  container-rasa-shell:
     build:
       context: .
-      dockerfile: Rasa.dockerfile
-    container_name: rasa
-    networks: 
-      - rasa-network
+      dockerfile: bot.Dockerfile
     ports:
-      - 5005:5005
+      - 5005:5056
+    depends_on:
+      - container-rasa-action
     volumes:
       - ./:/app
     public: true
@@ -18,48 +16,16 @@ services:
       - --enable-api
       - --cors
       - "*"
+      - --credentials
+      - credentials.yml
       - --debug
-
-
-  action-server:
+      - -p 5056
+  container-rasa-action:
     build:
       context: .
-      dockerfile: Dockerfile
-    image: rasa-action-server
-    container_name: ractions
-    networks: 
-      - rasa-network
+      dockerfile: actions.Dockerfile
+    image: rasa-actions:latest
     ports:
-      - "5055:5055"
+      - 5055:5055
     volumes:
-      - "./actions:/app/actions"
-
-
-  mongodb:
-    image: mongo
-    container_name: db
-    networks: 
-      - rasa-network
-    ports:
-      - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
-      MONGO_INITDB_DATABASE: test
-
-  web:
-    build:
-      context: Web/
-      dockerfile: Web.dockerfile
-    image: webchat
-    container_name: webchat-app
-    depends_on:
-      - "chatbot"
-    networks: 
-      - rasa-network
-    ports: 
-      - 3000:3000
-
-networks: 
-    rasa-network:
-        driver: bridge
+      - ./actions:/app/actions

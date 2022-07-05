@@ -17,4 +17,3 @@ COPY ./actions /app/actions
 
 # Seguindo as boas práticas não executo o código com user root
 USER 1001
-#USER 1001

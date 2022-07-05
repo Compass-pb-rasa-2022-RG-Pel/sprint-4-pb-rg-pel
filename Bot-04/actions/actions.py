@@ -15,7 +15,7 @@ from rasa_sdk.events import SlotSet
 from pymongo import MongoClient
 import requests
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import re
 
 class ActionProcuraCep(Action):
