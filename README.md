@@ -68,15 +68,46 @@ Api midea stack
 <img src="https://i.ibb.co/P9t8fJZ/bot-2.jpg">
 
 
+<img src="https://i.ibb.co/G9CK1bm/bot3.jpg">
+
 
 
 ### Conexão do mongo com os links salvos que vem da api!
 
-<img src="https://i.ibb.co/rk9ZMn8/conex-o-do-mongo.jpg">
+
+<img src="https://i.ibb.co/8KB6g31/mongo-express.jpg">
+
+
+### conexão com o okteto e seus links de acesso a web e ao mongodb.
+
+
+<img src ="https://i.ibb.co/r3g05pF/okteto-acessos.jpg">
+
+
+
+## segue o link do okteto com a função web para o chat bot.
+
+- * https://web-rodrigovaladao01.cloud.okteto.net/
+
+
+## Aqui o link para acessar o histórico no banco de dados.
+
+- * https://mongo-e-rodrigovaladao01.cloud.okteto.net/
+
+
 
 
 
 ---
 ---
-### Tive alguns problemas com a conexão da parte front onde criei o codigo com uma interface similar a um chatbot real para o projeto, e então assim com o okteto nos trazendo grande dificuldades de link, onde ele não conseguia fazer a construção da imagens e seu acesso.
+
+
+
+
+
+
+### Tive alguns problemas com a conexão da parte front onde criei o código com uma interface similar a um chatbot real para o projeto, e então assim com o okteto nos trazendo grande dificuldades de link, onde ele não conseguia fazer a construção da imagens e seu acesso pois não conseguiamos a combinação e defição para rodar com o mongo,dockerfile e okteto simultaneamente, mas após muito esforço e tentativas chegamos ao final e a conclusão.
+
+
+
 - 
