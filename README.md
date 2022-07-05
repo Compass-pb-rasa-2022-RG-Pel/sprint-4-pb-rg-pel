@@ -236,7 +236,9 @@ O link da aplicação web segue:<br>
 
 <br>
 
-### 
+### O que faz?
+
+- Vale destacar que a aplicação efetivamente apenas cumpre todos requisitos necessários para atividade dessa sprint, ela possui formulário em que salva em Slots o nome do usuário e, também, o nome do pokemon consultado. Ela consome uma api pública e, caso encontre, sava as informações em banco de dados MongoDB e as exibe ao usuário. A aplicaão consulta o banco de dados para informar o usuário se ele já consultou aquele determinado pokemon e tudo isso é feito via Web através de aplicação lançada via docker-compose e kubernetes na plataforma Okteto.
 
 [Subir ao Início](#inicio)
 
