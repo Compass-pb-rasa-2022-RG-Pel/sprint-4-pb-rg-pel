@@ -19,7 +19,7 @@ services:
       - --cors
       - "*"
       - --debug
-      - p 5056
+      - -p 5056
   container-server-bot:
     build:
       context: .
@@ -32,21 +32,9 @@ services:
     volumes:
       - ./actions:/app/actions
 
-  mongodb:
-    image: mongo
-    container_name: db
-    networks: 
-      - rasa-network
-    ports:
-      - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
-      MONGO_INITDB_DATABASE: sprint4
-
   web:
     build:
-      context: ./web/
+      context: ./webchat
       dockerfile: web.Dockerfile
     image: webchat
     container_name: webchat-app

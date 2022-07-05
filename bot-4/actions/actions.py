@@ -8,8 +8,8 @@ from rasa_sdk.executor import CollectingDispatcher
 import requests
 from rasa_sdk.events import SlotSet
 import os
-from dotenv import load_dotenv
 from pymongo import MongoClient
+
 
 
 
@@ -22,17 +22,15 @@ class ActionHelloWorld(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # definindo variaveis para acessar api
+
         user = tracker.get_slot('user')
         cat = tracker.get_slot("breeds")
 
-        # Lendo arquivo .env
-        dotenv_path = os.path.join(os.path.dirname(__file__), '../bot-2/.env')       
-        load_dotenv(dotenv_path)
+       
+       
         DB_USER = "rasa-rasa"
         DB_PASS = "rasaapicat"
-        print(DB_USER)
-        print(DB_PASS)
+      
 
         # conexão com o MongoDB
         client = MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASS}@clustercat.5ztbxvd.mongodb.net/?retryWrites=true&w=majority")
@@ -40,38 +38,37 @@ class ActionHelloWorld(Action):
         collection = db["cats-collection"]
         print(db)
 
-        # conectando com a api CatApi
-        url= f'https://api.thecatapi.com/v1/images/search?breeds_ids={cat}'
-        json_data = requests.get(url).json()
-        data = json_data[0].get('url')
+    
+        
 
-        # verificando se a busca já está no banco
-        if (collection.count_documents({"cat":cat, "url":url})):
-
-            resp = "Esse gato já consta na nossa consulta"
-            dispatcher.utter_message(text= resp)
+        if (collection.count_documents({"cat":cat})):
             
-            consulta = collection.find({"cat":cat, "url":url})
-            catDB = consulta.get("cat", "url")
-            resp2 = f"Voce pode conferir aqui {catDB}"
-            dispatcher.utter_message(text= resp2)
+            consulta = collection.find_one({"cat":cat})
+            catDB = consulta.get("cat")
+            imgDB = consulta.get("imgURL")
+            dispatcher.utter_message(text= f"O gato {catDB} já foi consultado. Abaixo o resultado da pesquisa")
+            dispatcher.utter_message(image = imgDB)
 
-        # se não estiver, faz novo registro e retorna para o usuário
         else:
+
+            url= f'https://api.thecatapi.com/v1/images/search?breeds_ids={cat}'
+            json_data = requests.get(url).json()
+            imgURL = json_data[0].get('url')
             
-            resp = f"Olá {user}, o você solicitou o gato raça {cat}, aqui estão link {data} <image src={data} height=100px ></image>"
+            resp = f"Olá {user}, o você solicitou o gato raça {cat}, aqui estão link {imgURL}"
 
-            res = {"user": user, "cat": cat, "url":url}
+            post = {
+                "user": user,
+                "cat": cat,
+                "imgURL":imgURL
+                }
 
-            collection.insert_one(res)
+            collection.insert_one(post)
 
             dispatcher.utter_message(text= resp)
+            dispatcher.utter_message(image= imgURL)
 
             return [SlotSet("breeds", url)]
-
-         
-
-
 
 ## img: data[0].url, cat_type, name: data[0].breeds[0].name
 
