@@ -1,10 +1,10 @@
-version: '3'
+version: '3.0'
 services:
 
   chatbot:
     build:
       context: .
-      dockerfile: Rasa.dockerfile
+      dockerfile: bot.Dockerfile
     container_name: rasa
     networks:
       - rasa-network
@@ -23,9 +23,9 @@ services:
   action-server:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: server.Dockerfile
     image: rasa-action-server
-    container_name: ractions
+    container_name: actions
     networks:
       - rasa-network
     ports:
