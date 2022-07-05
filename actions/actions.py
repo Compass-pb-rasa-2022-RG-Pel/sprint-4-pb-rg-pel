@@ -28,10 +28,10 @@ class Habilidades(Action):
             database = client["sprint4"]
             minha_colcao = database["pokemons"]
             
-            if int(minha_colcao.count_documents({"usuario": usuario, "pokemon": nome})) > 0:
-                dispatcher.utter_message(text=f"Você já consultou o pokemon {nome}")
-            else:
-                print("Não localizado")
+            #if int(minha_colcao.count_documents({"usuario": usuario, "pokemon": nome})) > 0:
+            #    dispatcher.utter_message(text=f"Você já consultou o pokemon {nome}")
+            #else:
+            #    print("Não localizado")
                 
         except:
             print("Não foi possível conectar ao banco de dados")
@@ -58,7 +58,7 @@ class Habilidades(Action):
 
         if tracker.slots['usuario'] == None:
             dispatcher.utter_message(text=f"Antes de continuar, digite seu nome. Pode começar com: 'Meu nome é ...'")
-            return [SlotSet("nome_pokemon", None)] 
+            return [] 
         else:
             dispatcher.utter_message(text=f"NOME: {nome}")
             dispatcher.utter_message(text=f"VIDA: {vida}")
@@ -70,6 +70,7 @@ class Habilidades(Action):
             dispatcher.utter_message(image = link_foto)
             
             registro = [{"usuario": usuario, "pokemon": nome, "vida": vida, "ataque": ataque, "defesa": defesa, "ataque especial": ataque_especial, "defesa especial": defesa_especial, "velocidade": velocidade, "imagem": link_foto, "data atual": data_atual, "id da conexão": id_conexao}]
+            
             minha_colcao.insert_many(registro)
             
             return [SlotSet("nome_pokemon", None)] 
