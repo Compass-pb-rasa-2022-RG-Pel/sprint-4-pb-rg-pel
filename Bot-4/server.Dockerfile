@@ -1,5 +1,5 @@
 # Utiliza a imagem rasa-sdk oficial como base
-FROM rasa/rasa-sdk:3.0.2
+FROM rasa/rasa-sdk:latest
 WORKDIR /app
 
 # Copia para o container arquivo que define as dependências externas
