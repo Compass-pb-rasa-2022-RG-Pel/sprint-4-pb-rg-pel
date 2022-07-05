@@ -65,4 +65,7 @@ class Habilidades(Action):
             dispatcher.utter_message(text=f"VELOCIDADE: {velocidade}")
             dispatcher.utter_message(image = link_foto)
             
+            registro = [{"usuario": usuario, "pokemon": nome, "vida": vida, "ataque": ataque, "defesa": defesa, "ataque especial": ataque_especial, "defesa especial": defesa_especial, "velocidade": velocidade, "imagem": link_foto}]
+            minha_colcao.insert_many(registro)
+            
             return [SlotSet("nome_pokemon", None)] 
