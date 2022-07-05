@@ -25,10 +25,6 @@ Avaliação da quarta sprint do programa de bolsas Compass.uol para formação e
 
 * Kubernetes - Okteto
 
-* Twilio -Whatsapp
-
-* Ngrok
-
 
 ## bot-1
 
@@ -69,6 +65,7 @@ Inicia-se a conversa com uma saudação. O bot responde perguntando o nome, o us
 ## bot-3
 
 ### Tecnologias utilizadas
+
 * Rasa
 
 * Node
@@ -109,12 +106,10 @@ Inicia-se a conversa com uma saudação. O bot responde perguntando o nome, o us
 * Iniciar servidor rasa: rasa run --cors "*"
 * Iniciar servidor node
 
+Link: https://web-suelen-prs.cloud.okteto.net/
 
-### Dificuldades encontradas:
+![Captura de tela de 2022-07-05 05-47-30](https://user-images.githubusercontent.com/29054252/177289248-67aa5a8c-501c-4b81-8e6e-d46007a7f32c.png)
 
-Apesar de os arquivos dockerfile estarem configurados e o docker-compose.yml orquestrando os dockerfiles, o deploy não foi bem sucedido.
-
-Link: https://container-server-bot-suelen-prs.cloud.okteto.net/
 
 
 
