@@ -9,7 +9,7 @@ services:
     networks:
       - rasa-network
     ports:
-      - 5005:5005
+      - 5005:5056
     volumes:
       - ./:/app
     public: true
