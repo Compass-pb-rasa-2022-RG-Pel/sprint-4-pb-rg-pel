@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: rasaDock.Dockerfile
     ports:
-      - 5005:80
+      - 5005:5056
     depends_on:
       - container-server-bot
     volumes:
@@ -15,10 +15,8 @@ services:
       - --enable-api
       - --cors
       - "*"
-      - --credentials
-      - credentials.yml
       - --debug
-      - "80"
+      - p 5056
   container-server-bot:
     build:
       context: .
@@ -44,7 +42,7 @@ services:
   web:
     build:
       context: ./web/
-      dockerfile: web.dockerfile
+      dockerfile: web.Dockerfile
     image: webchat
     container_name: webchat-app
     depends_on:
