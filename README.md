@@ -53,7 +53,7 @@ Informe a raça do cachorro que deseja visualizar
 
  Retornar a solicitação/ histórico de pesquisa de um usuário caso tenha se repetido(preferência)
 
-Setup
+# Setup
 
 Inicializando ambiente virtual com:
 
@@ -62,8 +62,8 @@ source ../venv/bin/activate
 python=3.8.13
 
 
-Bot-1
-<<<<<<< HEAD
+# Bot-1
+
 
 Tecnologias usadas:
 
@@ -93,7 +93,7 @@ rasa run actions
 acessar localmente com o arquivo index.html (Abra o arquivo em um navegador qualquer)
 
 
-Bot-2
+# Bot-2
 
 
 Rasa
@@ -124,7 +124,7 @@ Foi conectado ao mongoDB
 
 Dificuldade encontrada: configurar o dotenv adquadamente.
 
-Bot-3
+# Bot-3
 
 
 Testando com docker
@@ -137,7 +137,8 @@ acessar localmente com o arquivo index.html (Abra o arquivo em um navegador qual
 
 Foram desenvolvidos containers, um para as actions, outro para o rasa, e outro para o banco MongoDB. Foi criado também o arquivo docker-compose.yml (para a execução ordenada dos arquivos dockerfile)
 
-Bot-4
+# Bot-4
+
 
 Rasa
 
