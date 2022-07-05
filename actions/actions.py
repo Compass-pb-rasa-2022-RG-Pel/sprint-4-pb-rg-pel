@@ -26,17 +26,16 @@ class Habilidades(Action):
         try:
             client = MongoClient("mongodb://root:root@mongodb:27017/")
             database = client["sprint4"]
-            minha_colcao = database["pokemons"]
+            minha_colecao = database["pokemons"]
             
-            #if int(minha_colcao.count_documents({"usuario": usuario, "pokemon": nome})) > 0:
-            #    dispatcher.utter_message(text=f"Você já consultou o pokemon {nome}")
+            #if int(minha_colecao.count_documents({"usuario": usuario, "pokemon": pokemon})) > 0:
+            #    dispatcher.utter_message(text=f"Você já consultou o pokemon {pokemon}")
             #else:
             #    print("Não localizado")
                 
         except:
             print("Não foi possível conectar ao banco de dados")
-            
-        
+                    
         try:
             url = f'https://pokeapi.co/api/v2/pokemon/{pokemon}'
 
@@ -50,10 +49,9 @@ class Habilidades(Action):
             velocidade = (objeto_pokemon['stats'][5]['base_stat'])
             link_foto = (objeto_pokemon['sprites']['other']['home']['front_default'])
             
-            resposta = f'NOME = {nome.upper()} \nVIDA = {vida} \nATAQUE = {ataque} \nDEFESA = {defesa} \nATAQUE ESPECIAL = {ataque_especial} \nDEFESA ESPECIAL = {defesa_especial} \nVELOCIDADE = {velocidade} \nLINK DA FOTO = {link_foto}'
-            
         except:
-            resposta = f'Não foi possível localizar este pokemon, verifique se {pokemon} é o nome de um pokemon'
+            dispatcher.utter_message(text=f'Não foi possível localizar este pokemon, verifique se {pokemon} é o nome de um pokemon')
+            return[]
 
 
         if tracker.slots['usuario'] == None:
@@ -71,6 +69,6 @@ class Habilidades(Action):
             
             registro = [{"usuario": usuario, "pokemon": nome, "vida": vida, "ataque": ataque, "defesa": defesa, "ataque especial": ataque_especial, "defesa especial": defesa_especial, "velocidade": velocidade, "imagem": link_foto, "data atual": data_atual, "id da conexão": id_conexao}]
             
-            minha_colcao.insert_many(registro)
+            minha_colecao.insert_many(registro)
             
             return [SlotSet("nome_pokemon", None)] 
