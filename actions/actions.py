@@ -26,13 +26,7 @@ class Habilidades(Action):
         try:
             client = MongoClient("mongodb://root:root@mongodb:27017/")
             database = client["sprint4"]
-            minha_colecao = database["pokemons"]
-            
-            #if int(minha_colecao.count_documents({"usuario": usuario, "pokemon": pokemon})) > 0:
-            #    dispatcher.utter_message(text=f"Você já consultou o pokemon {pokemon}")
-            #else:
-            #    print("Não localizado")
-                
+            minha_colecao = database["pokemons"]                
         except:
             print("Não foi possível conectar ao banco de dados")
                     
@@ -67,7 +61,7 @@ class Habilidades(Action):
             dispatcher.utter_message(text=f"VELOCIDADE: {velocidade}")
             dispatcher.utter_message(image = link_foto)
             
-            registro = [{"usuario": usuario, "pokemon": nome, "vida": vida, "ataque": ataque, "defesa": defesa, "ataque especial": ataque_especial, "defesa especial": defesa_especial, "velocidade": velocidade, "imagem": link_foto, "data atual": data_atual, "id da conexão": id_conexao}]
+            registro = [{"usuario": usuario, "pokemon": nome, "vida": vida, "ataque": ataque, "defesa": defesa, "ataque especial": ataque_especial, "defesa especial": defesa_especial, "velocidade": velocidade, "imagem": link_foto}]
             
             minha_colecao.insert_many(registro)
             
