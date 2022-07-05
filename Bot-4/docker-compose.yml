@@ -42,7 +42,7 @@ services:
       - action
   web:
     build:
-      context: ./web
+      context: .
       dockerfile: web.Dockerfile
     image: webchat
     container_name: web
