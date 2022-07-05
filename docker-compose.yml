@@ -9,7 +9,7 @@ services:
     networks:
       - rasa-network
     ports:
-      - 5005:5005
+      - 5005:8080
     volumes:
       - ./:/app
     public: true
@@ -19,6 +19,7 @@ services:
       - --cors
       - "*"
       - --debug
+      - -p 8080
 
   action-server:
     build:
@@ -47,7 +48,7 @@ services:
 
   web:
     build:
-      context: ./webchat
+      context: ./webchat/
       dockerfile: Web.dockerfile
     image: webchat
     container_name: webchat-app
