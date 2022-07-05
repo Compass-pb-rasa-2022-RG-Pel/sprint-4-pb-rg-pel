@@ -1,0 +1,35 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform_name
+    entities:
+    - name: fernando
+  - action: user_form
+  - active_loop: user_form
+  - slot_was_set:
+    - name: fernando
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_askWeather
+  - intent: affirm
+  - action: utter_askLocation
+  - intent: inform_city
+    entities:
+    - city: pelotas
+  - action: city_form
+  - active_loop: city_form
+  - slot_was_set:
+    - city: pelotas
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_search_city
+  - action: utter_continue
+  - intent: deny
+  - action: utter_goodbye
