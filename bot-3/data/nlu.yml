@@ -1,0 +1,116 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Ei
+    - Olá 
+    - Oi 
+    - Olá 
+    - Bom dia 
+    - Boa noite 
+    - Ei  
+    - Bom dia 
+    - Boa noite 
+    - Boa tarde
+
+- intent: goodbye
+  examples: |
+    - Adeus 
+    - vejo você mais tarde 
+    - boa noite 
+    - tchau 
+    - Adeus 
+    - tenha um bom dia 
+    - vejo você por perto 
+    - tchau 
+    - te vejo mais tarde
+
+- intent: affirm
+  examples: |
+    - sim
+    - s
+    - na verdade
+    - é claro
+    - correto
+
+- intent: deny
+  examples: |
+    - não
+    - n
+    - Nunca
+    - Eu não acho
+    - de jeito nenhum
+    - Na verdade não
+
+- intent: mood_great
+  examples: |
+    - perfeito
+    - excelente
+    - incrível
+    - Maravilhoso
+    - Estou me sentindo muito bem
+    - Estou estou ótimo
+    - Eu sou incrível
+    - extremamente bom
+    - tão perfeito
+    - tão bom
+
+- intent: mood_unhappy
+  examples: |
+    - Meu dia foi horrível
+    - Estou triste
+    - Eu não me sinto muito bem
+    - Estou desapontado
+    - super triste
+    - Eu estou tão triste
+    - triste
+    - muito triste
+    - infeliz
+    - não muito bem
+    - extremamente triste
+    - tão triste
+
+- intent: bot_challenge
+  examples: |
+    - Você é um robô?
+    - Você é um humano?
+    - Estou falando com um bot?
+    - Estou falando com um humano?
+
+- intent: inform_user_name
+  examples: |
+    - O meu nome é [Aline](usuario)
+    - meu nome é [Pedro](usuario)
+    - o nome é [Vanessa](usuario)
+    - [tatieli](usuario)
+    - [caio](usuario)
+    - [romulo](usuario)
+    - eu sou [felipe](usuario)
+    - eu me chamo [augusto](usuario)
+    - sou [lucas](usuario)
+    - meu nome é [fulano](usuario)
+    - me chamo [beltrano](usuario)
+    - sou o [daniel](usuario)
+    - [alisson](usuario)
+    - [everton](usuario)
+    - [juan](usuario) é meu nome
+    - pode me chamar de [fernando](usuario)
+    - sou a [suelen](usuario)
+
+- intent: inform_earth_date
+  examples: |
+    - queria a data [06/09/2015](earth_date)
+    - quero uma foto da data: [06/05/2019](earth_date)
+    - pode ser a data [31/10/2020](earth_date)
+    - data: [18/03/2016](earth_date)
+    - [01/01/2016](earth_date)
+    - [02/02/2017](earth_date)
+    - a data é [22/03/2022](earth_date)
+    - [14/04/2021](earth_date)
+    - [25/12/2016](earth_date)
+   # - [06/09/2015](earth_date)
+    # - [06/09/2015](earth_date)
+    # - [06/09/2015](earth_date)
+    # - [06/09/2015](earth_date)
+    # - [06/09/2015](earth_date)
