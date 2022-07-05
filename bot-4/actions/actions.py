@@ -3,11 +3,10 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import requests
 from pymongo import MongoClient
-from dotenv import load_dotenv
 import os
 
 # Environment variables
-config = load_dotenv('../sprint-4-pb-rg-pel/.env')
+# config = load_dotenv('../sprint-4-pb-rg-pel/.env')
 API_KEY = "cd94ea11ea101c7443a5613e10993ad0"
 DB_NAME = "fernando"
 DB_PASS = "fSjIiRhEXnwKy8Ch"

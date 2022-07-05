@@ -8,8 +8,8 @@ intents:
 - inform_city
 - inform_name
 entities:
-- name
 - city
+- name
 slots:
   city:
     type: text
