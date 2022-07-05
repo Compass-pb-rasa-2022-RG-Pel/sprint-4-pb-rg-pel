@@ -42,7 +42,7 @@ Api midea stack
 
 - rasa run actions
 
-### Na pasta web acesse o index.html em seu navegador,onde estará o chatbot para executar.
+### Sendo que estes ultimos dois comandos precisam estar em um ambiente virtual como sitado assima e com dois terminais diferentes para sua execução para fim de conseguir os treinamentos e demais funções do rasa!
 
 ---
 # Como foi a montagem e criação do Bot!
