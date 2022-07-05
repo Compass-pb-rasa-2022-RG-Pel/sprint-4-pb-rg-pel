@@ -206,7 +206,7 @@ Segue o link dos dockerfiles mencionados no arquivo acima:
 ## DIFICULDADES ENCONTRADAS
 <br>
 
-
+- Impende destacar que, mais uma vez, as maiores dificuldades encontradas ficaram por conta da compatibilidade com o serviço Okteto. Mais precisamente quanto a configuração das portas e de serviços externos. Embora não haja vasta documentação que facilite a elucidação e solução destes problemas, encontramos algumas soluções e as adaptamos aos nossos sistemas. Falo no plural porque embora essa fosse uma tarefa individual, todos os participantes dessa sprint se ajudaram e, assim, conseguimos chegar em um modelo que comportasse todos os serviços necessários em um único docker-compose e completamente sincronizados.
 
 <br>
 
@@ -217,9 +217,27 @@ Segue o link dos dockerfiles mencionados no arquivo acima:
 
 O link da aplicação web segue:<br>
 [Aplicação Online no Servidor OKTETO](https://web-andersonaoliveira.cloud.okteto.net/)
+---
+
+### Recursos Utilizados
+
+- [Anaconda](https://www.anaconda.com/)
+- [Python 3.8](https://www.python.org/downloads/release/python-380/)
+- [RASA](https://rasa.com/)
+- [NODEJS](https://nodejs.org/en/)
+- [VISUAL STUDIO CODE](https://code.visualstudio.com/)
+- [MONGO DB](https://www.mongodb.com/)
+- [PYMONGO](https://pymongo.readthedocs.io/en/stable/)
+- [DOCKER](https://www.docker.com/)
+- [KUBERNETES](https://kubernetes.io/pt-br/)
+- [REQUESTS](https://pypi.org/project/requests/)
+- [API POKEMON](https://pokeapi.co/)
+- [OKTETO](https://www.okteto.com/)
 
 <br>
 
+### 
+
 [Subir ao Início](#inicio)
 
----
+
