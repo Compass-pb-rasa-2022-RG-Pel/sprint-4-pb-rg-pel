@@ -34,7 +34,7 @@ Api midea stack
 
 - rasa shell
 
-### Com esse comando damos start no server rasa
+### Com esse comando vamos dar um start no server rasa
 
 - rasa run --cors "*"
 
@@ -42,7 +42,7 @@ Api midea stack
 
 - rasa run actions
 
-### Sendo que estes ultimos dois comandos precisam estar em um ambiente virtual como sitado assima e com dois terminais diferentes para sua execução para fim de conseguir os treinamentos e demais funções do rasa!
+### Sendo que estes ultimos dois comandos precisam estar em um ambiente virtual como citado assima e com dois terminais diferentes para sua execução para fim de conseguir os treinamentos e demais funções do rasa!
 
 ---
 # Como foi a montagem e criação do Bot!
@@ -57,7 +57,7 @@ Api midea stack
 ### O terceiro BOt-3 foi incluido os arquivos para a conexão com o Dockerfile.
 
 
-### o quarto Bot-4 teve a interação e inclusão no okteto para a hospedagem e geração do link de acesso do bot funcionando.
+### O quarto Bot-4 teve a interação e inclusão no okteto para a hospedagem e geração do link de acesso do bot funcionando.
 
 # Imagens do chat Bot!
 
@@ -106,7 +106,7 @@ Api midea stack
 
 
 
-### Tive alguns problemas com a conexão na parte front, onde criei um html e um java scrit para conectar e completar  o código com uma interface similar a um chatbot real para o projeto, e então assim com o okteto nos trazendo grande dificuldades de link, onde ele não conseguia fazer a construção da imagens e seu acesso pois não conseguiamos a combinação e defição para rodar com o mongo,dockerfile e okteto simultaneamente, mas após muito esforço e tentativas chegamos ao final e a conclusão.
+### Tive alguns problemas com a conexão na parte front, onde criei um html e um java scrit para conectar e completar o código com uma interface similar a um chatbot real para o projeto, e então assim com o okteto nos trazendo grande dificuldades de link, onde ele não conseguia fazer a construção da imagens e seu acesso pois não conseguiamos a combinação e defição para rodar com o mongo,dockerfile e okteto simultaneamente pois havia conflito de porta, mas após muito esforço e tentativas chegamos ao final e a conclusão.
 
 
 # Tecnologias Utilizadas:

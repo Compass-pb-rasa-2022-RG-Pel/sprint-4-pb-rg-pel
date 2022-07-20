@@ -23,7 +23,7 @@ services:
       context: .
       dockerfile: server.Dockerfile
     image: rasa-action-server
-    # container_name: actions
+
     networks:
       - all
     ports:
@@ -31,9 +31,8 @@ services:
     volumes:
       - "./actions:/app/actions"
     environment:
-      - API_KEY=ca89b084ffffaa5e905c7c0eda443631
+      - APY_KEY=${APY_KEY}
       - 
-        #MONGO_DB=mongodb+srv://Rodrigo:rasa1234@cluster0.9nwjp.mongodb.net/?retryWrites=true&w=majority
 
   mongodb:
     image: mongo
@@ -74,5 +73,3 @@ services:
 networks:
   all:
     driver: bridge
-    # driver_opts:
-    #   com.docker.network.enable_ipv6: "true"

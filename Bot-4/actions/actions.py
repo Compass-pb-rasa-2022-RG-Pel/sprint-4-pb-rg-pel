@@ -73,7 +73,6 @@ class ActionMediaStack(Action):
         keyword = tracker.get_slot("keyword")
         name = tracker.get_slot("name")
         client = MongoClient("mongodb://root:root@mongodb:27017/")
-        #client = MongoClient("mongodb+srv://Rodrigo:rasa1234@cluster0.9nwjp.mongodb.net/?retryWrites=true&w=majority")
         db = client["rasa"]
         collection = db["history"]
 

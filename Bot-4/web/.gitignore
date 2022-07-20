@@ -1,1 +1,4 @@
 node_modules
+okteto.exe
+.env
+base_config.cfg
